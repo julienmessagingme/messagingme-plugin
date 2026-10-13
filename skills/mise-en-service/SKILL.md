@@ -26,13 +26,18 @@ terminal cuts at the edge of the screen).
 - **Always start with `get_setup_state`.** It returns what is already done and `etape_suivante`, with the tools for it
   (`outils_suggeres`). Skip what is done. Call it again after each step, and whenever the session resumes.
 - Read its `avertissements`: `credit_epuise` (the AI agent cannot answer until the credit is topped up),
-  `numero_a_activer` (Meta has not finished activating the number), `repondeur_gele_par_l_offre` (the responder the
+  `numero_a_activer` (Meta has not finished activating the number), `carte_meta_a_regler` (Meta blocks the WhatsApp
+  account for its payment method, so templates do not go out: give the user the numbered steps of
+  `etapes_carte_meta`; it usually clears within 20 minutes of adding the card), `repondeur_gele_par_l_offre` (the responder the
   user chose, such as Meta's agent, is frozen by the current plan: tell them, never replace it), `lecture_manquee:<part>`
   (that part could not be read: say so, do not guess).
 - A responder already chosen (`repondeur.mode_choisi` is `mba`, `scenario` or `application`) skips the AI agent steps:
   build an AI agent only if the user asks for one.
 
 ## connecter_numero: the WhatsApp number
+
+The `consigne` of `start_whatsapp_connection` starts with what Meta requires (a Meta Business account, that is a
+business portfolio, and for their own number one that is not used in the WhatsApp app): relay it once, before the link.
 
 1. If `numero.fourni` is already set, a number was assigned to the workspace earlier: resume with mode `fourni`,
    without asking again. Otherwise ask which number to use:
@@ -52,6 +57,9 @@ terminal cuts at the edge of the screen).
    end ("I paid", "what now?"), tell them again where they are (the page, Meta's window, the number) before waiting
    again. Once `connecte: true`, call `get_setup_state` before announcing anything: the credit offered for the first
    number arrives a few seconds after the connection; if it still reads 0, read it once more a few seconds later.
+4. Right after the connection, tell the user to add a card at Meta (Visa or Mastercard), without which templates do
+   not go out: the `suite` of `watch_whatsapp_connection` gives the steps, and `get_setup_state` gives them again
+   (`etapes_carte_meta`) as long as Meta reports the card missing.
 
 ## activer_numero: a number Meta has not activated yet
 

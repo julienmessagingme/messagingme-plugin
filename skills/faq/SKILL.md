@@ -17,6 +17,14 @@ Yes: Meta’s WhatsApp Business Platform. Messaging Me is a Meta Tech Provider, 
 
 Oui : la WhatsApp Business Platform de Meta. Messaging Me est Tech Provider de Meta, sans aucune automatisation de WhatsApp Web. Le compte WhatsApp Business est dans votre Business Manager et reste à vous.
 
+## What do I need at Meta before I start?
+
+1) A Meta Business account, that is a business portfolio (formerly Business Manager): it will hold your WhatsApp account, your number and your card. You sign in with your Facebook profile, or with a managed Meta account from your organization. 2) No portfolio yet? On business.facebook.com, sign in, open the menu under “Home” at the top left, then create a business portfolio: your business’s public name (no special characters), your first name, last name and a business email address, then confirm the email Meta sends you. Meta’s window can also create it along the way, but doing it first is safer. 3) A number that is not used in the WhatsApp app (nor WhatsApp Business): once connected, it leaves the app. No spare number? We provide one.
+
+**FR · Que faut-il chez Meta avant de commencer ?**
+
+1) Un compte Meta Business, c’est-à-dire un portefeuille d’entreprise (l’ancien Business Manager) : c’est lui qui portera votre compte WhatsApp, votre numéro et votre carte. Vous y entrez avec votre profil Facebook, ou avec un compte Meta géré par votre organisation. 2) Pas encore de portefeuille ? Sur business.facebook.com, connectez-vous, ouvrez le menu sous « Accueil » en haut à gauche, puis créez un portefeuille business : le nom public de votre entreprise (sans caractères spéciaux), votre prénom, votre nom et une adresse e-mail professionnelle, puis confirmez l’e-mail que Meta vous envoie. La fenêtre de Meta peut aussi le créer en route, mais le faire avant est plus sûr. 3) Un numéro qui ne sert pas dans l’application WhatsApp (ni WhatsApp Business) : une fois relié, il la quitte. Pas de numéro libre ? Nous vous en fournissons un.
+
 ## My business name shows up wrong on WhatsApp.
 
 That is the WhatsApp display name, separate from your workspace name. You change it in your Business Manager, and Meta reviews every change: during the review, or after a rejection, WhatsApp may show the number instead.
@@ -35,11 +43,11 @@ Passé 24 heures sans message de la personne, seul un modèle approuvé par Meta
 
 ## Why does Meta ask for a card, and what does it charge?
 
-Meta bills your business directly, on the payment method of your Business Manager: templates, and since October 1, 2026 replies within the 24-hour window too, according to its rate card and the person’s country. Messaging Me never touches these fees. Meta’s rate card: https://developers.facebook.com/docs/whatsapp/pricing
+Meta bills your business directly, on the payment method of your Business Manager: templates, and since October 1, 2026 replies within the 24-hour window too, according to its rate card and the person’s country. Messaging Me never touches these fees. Meta’s rate card: https://developers.facebook.com/docs/whatsapp/pricing. To add the card: 1) On business.facebook.com, open WhatsApp Manager, “Overview” page. 2) On your WhatsApp account, click the three dots, then “Manage account settings”. 3) In the “Settings” tab, open “Payment settings”, then “Add payment method”. 4) Enter a Visa or Mastercard card (Meta accepts neither American Express nor PayPal), then your business details; Meta may ask for your tax information. 5) You must own the WhatsApp account, or have the “Manage WhatsApp account” permission. Without a valid card, only replies within the 24-hour window go out: templates (campaigns, follow-ups) are blocked.
 
 **FR · Pourquoi Meta me demande une carte, et que facture-t-il ?**
 
-Meta facture directement votre entreprise, sur le moyen de paiement de votre Business Manager : les modèles, et depuis le 1er octobre 2026 les réponses dans la fenêtre de 24 heures aussi, selon sa grille et le pays de la personne. Messaging Me ne touche pas à ces frais. La grille de Meta : https://developers.facebook.com/docs/whatsapp/pricing
+Meta facture directement votre entreprise, sur le moyen de paiement de votre Business Manager : les modèles, et depuis le 1er octobre 2026 les réponses dans la fenêtre de 24 heures aussi, selon sa grille et le pays de la personne. Messaging Me ne touche pas à ces frais. La grille de Meta : https://developers.facebook.com/docs/whatsapp/pricing. Pour ajouter la carte : 1) Sur business.facebook.com, ouvrez le Gestionnaire WhatsApp, page « Vue d’ensemble ». 2) Sur votre compte WhatsApp, cliquez sur les trois points, puis sur « Gérer les paramètres du compte ». 3) Dans l’onglet « Paramètres », ouvrez « Paramètres de paiement », puis « Ajouter un moyen de paiement ». 4) Saisissez une carte Visa ou Mastercard (Meta n’accepte ni American Express ni PayPal), puis les informations de votre entreprise ; Meta peut demander vos informations fiscales. 5) Il faut être propriétaire du compte WhatsApp, ou avoir le droit « Gérer le compte WhatsApp ». Sans carte valable, seules les réponses dans la fenêtre de 24 h partent : les modèles (campagnes, relances) sont bloqués.
 
 ## My template was rejected.
 

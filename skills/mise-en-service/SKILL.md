@@ -8,7 +8,9 @@ allowed-tools: mcp__plugin_messagingme_messagingme__get_setup_state, mcp__plugin
 
 Speak the user's language. The tools below belong to the `messagingme` MCP server of this plugin (in Claude Code their
 full names start with `mcp__plugin_messagingme_messagingme__`). Explain each step in one or two plain sentences before
-doing it; never paste raw tool output at the user.
+doing it; never paste raw tool output at the user. The user does not see tool results: a link or a verification
+code exists for them only once you write it, in full, as plain text on its own line (never in a code block, which a
+terminal cuts at the edge of the screen).
 
 ## Before anything
 
@@ -37,11 +39,19 @@ doing it; never paste raw tool output at the user.
    - **a number we provide** (`fourni`): a dedicated number, paid on the page before it is assigned, included in Pro;
    - **their own number** (`apporte`): first ask whether it is used in the WhatsApp app. A number connected to the API
      leaves the WhatsApp app; Meta's window refuses it until it is removed from the app.
-2. `start_whatsapp_connection` with that mode returns a link valid for one hour: give it to the user. They do Meta's
-   window in their browser.
+2. `start_whatsapp_connection` with that mode returns a link valid for one hour and its `consigne`. Write the full
+   `url` on its own line, then the numbered steps of `consigne`, one per line, in the user's language: the page shows
+   the same ones. For a number we provide: click the link; pay (or "Get my number" in Pro); click "Open the Meta
+   window"; on the number screen, "Enter a new phone number", the country GB (+44), then the digits that follow +44;
+   "Text message" if Meta offers the choice; the code shows on the page within seconds, and you write it here too;
+   no code after 45 seconds: wait until Meta offers to send it again, then try the other method; go to Meta's last
+   screen, "Finish"; only then come back here. Never write "I generated the link" without the link.
 3. Call `watch_whatsapp_connection` in a loop, passing the `empreinte` it returned as `etat_connu`, until
-   `connecte: true`, or until `a_activer: true` (then see `activer_numero`). When a `code` shows up, read it to the
-   user: they type it into Meta's window.
+   `connecte: true`, or until `a_activer: true` (then see `activer_numero`), and follow the `suite` of each answer.
+   When a `code` shows up, write it in full: the user types it into Meta's window. If the user comes back before the
+   end ("I paid", "what now?"), tell them again where they are (the page, Meta's window, the number) before waiting
+   again. Once `connecte: true`, call `get_setup_state` before announcing anything: the credit offered for the first
+   number arrives a few seconds after the connection; if it still reads 0, read it once more a few seconds later.
 
 ## activer_numero: a number Meta has not activated yet
 

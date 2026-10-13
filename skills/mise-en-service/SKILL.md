@@ -90,6 +90,21 @@ console's Home and click "Activer le numéro" (it sends a verification code by c
    adjust with `update_agent` if the user asks.
 7. `activate_agent`. If it refuses, it lists what is missing: complete it, then try again.
 
+## Actions: what the agent does in the user's application
+
+When the user wants the agent to act in their application when a customer asks (cancel a contract, book a callback,
+file a complaint), and only then: `set_agent_action` on the agent, with a name, an instruction (when to trigger it,
+and what the agent then tells the customer) and the details to collect, each with a code, a label and a type
+(`texte`, `nombre`, `date`, `email`, or `liste` with its values), all optional for the agent. The action is sent at
+most once a day per contact through the outgoing webhook `agent.action`, unchecked by default. If an address already
+serves the app (`list_webhook_endpoints`), add `agent.action` to it (console, Developers > Webhooks sortants, or
+`PATCH /v1/webhooks/{id}` with its full list of types) rather than creating a second one, which would have another
+secret; otherwise `create_webhook_endpoint` with the type `agent.action`. Then write the handler in the user's app (the
+payload is in the API documentation, the details in `fields` by code). Never change a field's code once the app reads
+it. To edit an action, `set_agent_action` with its `action_id`: what you leave out stays, `champs` given replaces the
+whole list. `get_agent` lists the actions, `get_conversation` shows those triggered in a conversation,
+`delete_agent_action` removes one.
+
 ## choisir_repondeur: who answers customers
 
 `set_default_responder` with `mode: "agent"` and the active agent's id. Only when `get_setup_state` asks for it: if a

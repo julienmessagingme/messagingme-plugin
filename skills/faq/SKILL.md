@@ -65,6 +65,14 @@ Three causes. The AI credit is used up: `get_credit`, then `buy_credit`. The age
 
 Trois causes. Le crédit IA est épuisé : `get_credit`, puis `buy_credit`. L’agent a été désactivé, ou n’est plus celui qui répond : `get_setup_state` le dit. Quelqu’un a répondu à la main, Claude compris (`reply_in_open_window`) : répondre prend la conversation, et l’agent se tait jusqu’à ce qu’elle lui revienne, d’elle-même après un délai sans nouvelle réponse, ou tout de suite par « Rendre la main » dans l’Inbox de la console.
 
+## Can my AI agent act in my application?
+
+Yes, through an action: `set_agent_action` adds it to the agent, with an instruction (when to trigger it, what to tell the customer next) and what it collects (a contract number, a date, a reason), all optional. When the customer makes the request, the agent answers what the instruction says and carries on, and your application receives the agent.action webhook, at most once a day per contact and per action. This type is unchecked by default: tick it on the address that already serves your application (console, Developers > Webhooks sortants), or create one (`create_webhook_endpoint`). Without an application, a console automation can start from the action.
+
+**FR · Mon agent IA peut-il agir dans mon application ?**
+
+Oui, par une action : `set_agent_action` la pose sur l’agent, avec une consigne (quand la déclencher, quoi dire au client ensuite) et ce qu’il recueille (un numéro de contrat, une date, un motif), tout facultatif. Quand le client fait la demande, l’agent lui répond ce que prévoit la consigne et continue, et votre application reçoit le webhook agent.action, une fois par jour au plus par contact et par action. Ce type est décoché par défaut : cochez-le sur l’adresse qui sert déjà votre application (console, Developers > Webhooks sortants), ou créez-en une (`create_webhook_endpoint`). Sans application, une automation de la console peut partir de l’action.
+
 ## The verification code does not arrive.
 
 With a number provided by Messaging Me, the code is captured for you and Claude shows it (`watch_whatsapp_connection`). With your own number, ask for a call rather than an SMS when Meta offers the choice. Meta allows only ten code requests per number over 72 hours.

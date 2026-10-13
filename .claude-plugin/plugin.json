@@ -1,0 +1,9 @@
+{
+  "name": "messagingme",
+  "version": "0.1.0",
+  "description": "WhatsApp for your app, from Claude Code: an official number, an AI agent that answers your customers and a chat bubble for your site, with Messaging Me.",
+  "author": { "name": "SmartLink", "url": "https://app.messagingme.fr" },
+  "homepage": "https://app.messagingme.fr/en/developers/",
+  "repository": "https://github.com/julienmessagingme/messagingme-plugin",
+  "keywords": ["whatsapp", "mcp", "messaging", "chatbot"]
+}

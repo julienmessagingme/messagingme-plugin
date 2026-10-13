@@ -1,0 +1,12 @@
+{
+  "name": "messagingme",
+  "owner": { "name": "SmartLink", "url": "https://app.messagingme.fr" },
+  "description": "Messaging Me for Claude Code: WhatsApp for your app, set up in one session.",
+  "plugins": [
+    {
+      "name": "messagingme",
+      "source": "./",
+      "description": "WhatsApp for your app, from Claude Code: an official number, an AI agent that answers your customers and a chat bubble for your site."
+    }
+  ]
+}

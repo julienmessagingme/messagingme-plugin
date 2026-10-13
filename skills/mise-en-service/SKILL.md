@@ -13,9 +13,14 @@ doing it; never paste raw tool output at the user.
 ## Before anything
 
 - If the `messagingme` tools are not available, the server is not authorized: ask the user to type `/mcp`, select
-  `messagingme`, then Authenticate (a browser page opens: they sign in, or create their workspace with Google, then
-  click Authorize).
-- If every tool shows up twice, an older server was added by hand: suggest `claude mcp remove messagingme`.
+  `plugin:messagingme:messagingme`, then Authenticate (a browser page opens: they sign in, or create their workspace
+  with Google, then click Authorize).
+- If the user had added the same server by hand before (same address, any name), Claude Code keeps theirs and sets the
+  plugin's aside: its tools carry that server's name. If that server uses an API key, the setup tools
+  (`start_whatsapp_connection`, `create_agent` and the others that act for a person) are missing from it: when
+  `get_setup_state` answers but the tools of `etape_suivante` are not available, ask the user to remove that server
+  (`claude mcp remove` followed by its name), then `/mcp`, `plugin:messagingme:messagingme`, Authenticate. Otherwise
+  use it as it is.
 - **Always start with `get_setup_state`.** It returns what is already done and `etape_suivante`, with the tools for it
   (`outils_suggeres`). Skip what is done. Call it again after each step, and whenever the session resumes.
 - Read its `avertissements`: `credit_epuise` (the AI agent cannot answer until the credit is topped up),
@@ -87,6 +92,12 @@ for their app).
   around a plan limit.
 - Outside the 24-hour window, only an approved template can be sent: see the `regles-whatsapp` skill.
 - Any other refusal: read its message to the user, plainly, and suggest the gesture it names.
+
+## Writing the application's code
+
+When the user's app calls Messaging Me (sending templates, receiving webhooks), read the API documentation first:
+https://console.messagingme.app/developers/api (for a language model: https://console.messagingme.app/llms.txt). The
+app's API key goes in the `MESSAGINGME_API_KEY` environment variable; the console's Démarrer page creates it.
 
 ## Never
 

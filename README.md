@@ -12,8 +12,8 @@ In Claude Code:
 /plugin install messagingme@messagingme
 ```
 
-Then type `/mcp`, select `messagingme` and Authenticate: a browser page opens, where you sign in (or create your
-workspace with Google) and click Authorize. Then:
+Then type `/mcp`, select `plugin:messagingme:messagingme` and Authenticate: a browser page opens, where you sign in
+(or create your workspace with Google) and click Authorize. Then:
 
 ```
 /messagingme:demarrer
@@ -34,8 +34,9 @@ The plugin does not update on its own. In Claude Code: `/plugin`, Marketplaces t
 (or "Enable auto-update"). In a terminal: `claude plugin update messagingme@messagingme`. The new version loads in the
 next session, or after `/reload-plugins`.
 
-If you had added the server by hand before (`claude mcp add ... messagingme`), remove it: `claude mcp remove
-messagingme`. Otherwise Claude sees every tool twice.
+If you had added the same server by hand before (same address, any name), Claude Code keeps yours and sets the
+plugin's aside: no duplicate tools, your authorization stays valid. To switch to the plugin's, remove the old one with
+`claude mcp remove` followed by its name.
 
 ## Documentation
 

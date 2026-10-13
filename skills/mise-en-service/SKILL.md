@@ -63,16 +63,21 @@ console's Home and click "Activer le numéro" (it sends a verification code by c
 
 0. If an agent was deactivated earlier (`agents.desactives`), ask whether to reactivate it or to build a new one:
    reactivating puts it back in the scenarios that use it.
-1. Ask, in one short round: what the business does, its website address, the tone (formal or not), opening hours,
-   when a human must take over, and what the agent must never say.
+1. Ask, in one short round: what the business does, its website address, the tone (formal or not), when a human
+   must take over, whether someone can take over at set hours (which days and hours, and the time zone if not
+   France), at any time, or never, and what the agent must never say.
 2. `create_agent` with a label (the first agent of a workspace needs a little AI credit: `get_credit`, `buy_credit`).
 3. If there is a website: `preview_site`, show the user which pages would be imported, then `import_site`. Without a
    website: `add_knowledge` with what the user tells you, or `import_document_text` for a document they give you. The
    agent cannot be activated without knowledge.
 4. `update_agent`: the objective (the field that weighs most on its answers), the tone, the handover rules (when to
    pass to a human) and at least one stop rule (`sorties`). Send the full list of `sorties`: it is replaced as a whole.
-5. `set_agent_tools` with `chercher_connaissance` (the knowledge is only used if this tool is on) and, if the user
-   wants it, `escalader`.
+   Then the team's hours, which decide what the agent promises when it hands over: at set hours,
+   `set_business_hours` (the seven days, closed or one range each) then `set_transfer_mode` with `business_hours`
+   (outside those hours the agent says when the team is back); at any time, `set_transfer_mode` with `always`; never,
+   `set_transfer_mode` with `never`.
+5. `set_agent_tools` with `chercher_connaissance` (the knowledge is only used if this tool is on) and `escalader`,
+   unless the user said no human ever takes over: without it, the agent announces a human but nothing hands over.
 6. `test_agent` on two or three realistic customer messages (each try is charged to the credit). Show the answers;
    adjust with `update_agent` if the user asks.
 7. `activate_agent`. If it refuses, it lists what is missing: complete it, then try again.

@@ -1,9 +1,16 @@
 {
   "name": "messagingme",
-  "version": "0.1.5",
+  "displayName": "Messaging Me",
+  "version": "0.2.0",
   "description": "WhatsApp for your app, from Claude Code: an official number, an AI agent that answers your customers and a chat bubble for your site, with Messaging Me.",
   "author": { "name": "SmartLink", "url": "https://app.messagingme.fr" },
   "homepage": "https://app.messagingme.fr/en/developers/",
   "repository": "https://github.com/julienmessagingme/messagingme-plugin",
+  "license": "MIT",
+  "icon": "./icon.svg",
+  "documentationUrl": "https://app.messagingme.fr/en/developers/",
+  "supportUrl": "https://app.messagingme.fr/contact/",
+  "privacyPolicyUrl": "https://www.messagingme.fr/en/politique-de-confidentialite-messaging-me/",
+  "termsOfServiceUrl": "https://www.messagingme.fr/en/conditions-d-utilisation/",
   "keywords": ["whatsapp", "mcp", "messaging", "chatbot"]
 }

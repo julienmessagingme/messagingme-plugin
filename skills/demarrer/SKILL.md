@@ -11,7 +11,7 @@ The user wants to set up Messaging Me (WhatsApp) for this project now, or to res
 1. Use the `mise-en-service` skill of this plugin and follow it from its first section: it starts with `get_setup_state`,
    so a setup that was already started resumes where it stopped.
 2. If the `messagingme` tools are not available, the server is not authorized yet: ask the user to type `/mcp`, select
-   `plugin:messagingme:messagingme`, then Authenticate. A browser page opens, where they sign in (or create their workspace with Google)
-   and click Authorize. Then call `get_setup_state`.
+   `plugin:messagingme:messagingme`, then Authenticate. A browser page opens: they continue with Google (no account
+   yet? the workspace is created right then, with no form) and click Authorize. Then call `get_setup_state`.
 
 Speak the user's language.

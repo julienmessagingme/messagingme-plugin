@@ -36,9 +36,10 @@ Speak the user's language. These rules come from Meta; Messaging Me applies them
 - Too many messages to the same person in a short time are refused for that person only.
 - Meta limits how many marketing templates one person receives, across all businesses.
 - The Messaging Me plan limits templates (`get_plan`); replies within the 24-hour window are never limited by the plan.
-- The API has a daily quota per workspace, on every plan: 2,000 sends a day by default, templates and free-form
-  messages included, raised on request. Beyond it, sends are refused with `quota_exceeded` (HTTP 429) until the next
-  day: an app that sends notifications must spread them or ask for more.
+- The API has daily quotas per workspace, set by the plan and raised on request. Templates and free-form
+  replies are counted separately, so sending templates never takes the room of replies to customers. Beyond a quota,
+  calls are refused with `quota_exceeded` (HTTP 429) until midnight, Paris time: an app that sends notifications must
+  spread them or ask for more.
 
 ## Received media
 

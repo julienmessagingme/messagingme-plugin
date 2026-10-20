@@ -126,8 +126,8 @@ for their app).
 
 ## When a tool refuses
 
-- `plan_limit_reached` or `plan_feature_unavailable`: tell the user, with the upgrade link from `get_plan`. Never work
-  around a plan limit.
+- `plan_limit_reached` or `plan_feature_unavailable`: tell the user, with the upgrade link from `get_plan`. If they want
+  the Pro plan, `subscribe_pro` returns its payment link. Never work around a plan limit.
 - Outside the 24-hour window, only an approved template can be sent: see the `regles-whatsapp` skill.
 - Any other refusal: read its message to the user, plainly, and suggest the gesture it names.
 
@@ -135,7 +135,10 @@ for their app).
 
 When the user's app calls Messaging Me (sending templates, receiving webhooks), read the API documentation first:
 https://console.messagingme.app/developers/api (for a language model: https://console.messagingme.app/llms.txt). The
-app's API key goes in the `MESSAGINGME_API_KEY` environment variable; the console's Démarrer page creates it.
+app's API key goes in the `MESSAGINGME_API_KEY` environment variable. `create_api_key` creates it and shows it ONCE: write
+it straight into the project's `.env` (a file git does not track), never repeat it in your answers or put it in code. Its scopes
+are limited (no MCP, webhook or contact deletion scope: those keys are created in the console). The plan caps active
+keys; revoking one in the console frees a place.
 
 ## Never
 
@@ -143,4 +146,4 @@ app's API key goes in the `MESSAGINGME_API_KEY` environment variable; the consol
   environment variable.
 - Never message a contact without their consent, and never launch a campaign without the user's explicit go.
 - Never state what Meta charges beyond the `faq` skill: prices change, and the FAQ points to Meta's rate card.
-- Never pay for the user: `buy_credit` and the number's page return a payment link; paying is their gesture.
+- Never pay for the user: `buy_credit`, `subscribe_pro` and the number's page return a payment link; paying is their gesture.

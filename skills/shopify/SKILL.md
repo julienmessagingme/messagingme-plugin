@@ -30,12 +30,14 @@ any Shopify review.
    `npx @shopify/cli@latest app init --no-input --template=none --name=messagingme --organization-id=<id> --package-manager=npm`,
    then delete the sample extensions it adds in its `extensions` folder.
 4. Replace the content of its `shopify.app.toml` with the block below, keeping the client id that `app init` wrote.
+   Its application URL is the page Shopify opens right after Install: it tells the user to come back here. Keep it in
+   French for a French-speaking user, otherwise use https://app.messagingme.fr/en/shopify/installed/ instead.
 5. Publish: `npx @shopify/cli@latest app deploy --no-input --allow-updates`.
 
 ```toml
 client_id = "<kept from app init>"
 name = "Messaging Me"
-application_url = "https://console.messagingme.app/"
+application_url = "https://app.messagingme.fr/shopify/installe/"
 embedded = false
 
 [access_scopes]
@@ -60,7 +62,8 @@ redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
 
 1. Give the user this link, built from the store and the client id, and ask them to click Install:
    https://admin.shopify.com/store/<name>/oauth/install?client_id=<client id>
-   The same link approves new access later, after an update of the scopes.
+   Shopify then opens a Messaging Me page saying it is installed and to come back to Claude Code. The same link
+   approves new access later, after an update of the scopes.
 2. Once they say it is installed, read the app's keys with `npx @shopify/cli@latest app env show --no-input`. Do not
    repeat the secret to the user.
 3. Call `connect_shopify` with `store`, `client_id` (SHOPIFY_API_KEY) and `client_secret` (SHOPIFY_API_SECRET). A refusal

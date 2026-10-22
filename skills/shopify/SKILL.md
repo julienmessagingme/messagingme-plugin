@@ -1,6 +1,6 @@
 ---
 name: shopify
-description: Connects the user's Shopify store to Messaging Me so that customers receive WhatsApp messages when an order is paid or shipped - creates the store app with the Shopify CLI in the merchant's own organization, installs it with one click, keeps its secret and sets the order messages. Use when the user wants to connect Shopify, send order confirmations or shipping updates on WhatsApp, or check or cut the Shopify connection.
+description: Connects the user's Shopify store to Messaging Me so that customers receive WhatsApp messages when an order is paid or shipped, and a reminder when they abandon a checkout - creates the store app with the Shopify CLI in the merchant's own organization, installs it with one click, keeps its secret and sets the messages. Use when the user wants to connect Shopify, send order confirmations, shipping updates or abandoned checkout reminders on WhatsApp, or check or cut the Shopify connection.
 allowed-tools: mcp__plugin_messagingme_messagingme__get_shopify_state, mcp__plugin_messagingme_messagingme__list_templates, mcp__plugin_messagingme_messagingme__get_template_status, mcp__plugin_messagingme_messagingme__get_setup_state
 ---
 
@@ -85,9 +85,21 @@ Two events can send a message: `order_paid` (the order is paid) and `order_fulfi
 Each message goes through the sending rules of Messaging Me (STOP, consent, monthly templates, contact limit) and shows
 up in Campaigns, one line per order.
 
+## Remind abandoned checkouts
+
+A third event, `checkout_abandoned`, sends one reminder when a customer filled the checkout with their phone and did
+not order. It is a marketing message, so it needs the consent answer above: `set_shopify_message` refuses it until the
+user affirms that their customers agreed (`customers_consented`).
+
+1. Propose a short reminder and create it as a marketing template with `create_template`, the link in the body. Its
+   data: `first_name` and `checkout_url` (the link that reopens the checkout).
+2. Once Meta approves it, call `set_shopify_message` with `event` set to `checkout_abandoned`, its `variables`, and
+   `delay_minutes`: how long after the checkout last changed the reminder leaves (60 by default, from 15 to 4320).
+3. Only one reminder per checkout, and none if an order came out of it in the meantime, even unpaid.
+
 ## Check or cut
 
-- `get_shopify_state`: the store, its messages, the last event received, and the last 30 days of outcomes (sent, opted
-  out, contact limit reached...). On the Free plan there is no console: this tool is the way to see the connection.
+- `get_shopify_state`: the store, its messages, the last event received, the last 30 days of outcomes (sent, opted
+  out, contact limit reached...) and, for checkout reminders, the last 7 days (a checkout is kept no longer). On the Free plan there is no console: this tool is the way to see the connection.
 - `disconnect_shopify` stops every message. The app stays installed on the store: only the user can uninstall it, from
   the store apps page the tool returns.

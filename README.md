@@ -91,8 +91,9 @@ The tools of the MCP server, by family:
 ## Update
 
 The plugin does not update on its own. In Claude Code: `/plugin`, Marketplaces tab, `messagingme`, "Update marketplace"
-(or "Enable auto-update"). In a terminal: `claude plugin update messagingme@messagingme`. The new version loads in the
-next session, or after `/reload-plugins`.
+(or "Enable auto-update"). In a terminal: `claude plugin update messagingme@messagingme`; on Windows, in PowerShell,
+type `claude.cmd` instead of `claude` (PowerShell blocks the `claude.ps1` script). The new version loads in the next
+session, or after `/reload-plugins`.
 
 If you had added the same server by hand before (same address, any name), Claude Code keeps yours and sets the
 plugin's aside: no duplicate tools, your authorization stays valid. To switch to the plugin's, remove the old one with

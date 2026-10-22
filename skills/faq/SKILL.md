@@ -131,11 +131,11 @@ Le Pro et le numéro fourni se gèrent dans le portail de Stripe, depuis la page
 
 ## How do I update the plugin?
 
-It does not update on its own. In Claude Code: /plugin, Marketplaces tab, messagingme, “Update marketplace” (or “Enable auto-update” from then on). In a terminal: claude plugin update messagingme@messagingme. The new code loads in the next session, or after /reload-plugins.
+It does not update on its own. In Claude Code: /plugin, Marketplaces tab, messagingme, “Update marketplace” (or “Enable auto-update” from then on). In a terminal: claude plugin update messagingme@messagingme; on Windows, in PowerShell, type claude.cmd instead of claude (PowerShell blocks the claude.ps1 script). The new code loads in the next session, or after /reload-plugins.
 
 **FR · Comment mettre à jour le plugin ?**
 
-Il ne se met pas à jour tout seul. Dans Claude Code : /plugin, onglet Marketplaces, messagingme, « Update marketplace » (ou « Enable auto-update » pour la suite). En terminal : claude plugin update messagingme@messagingme. Le nouveau code se charge à la session suivante, ou après /reload-plugins.
+Il ne se met pas à jour tout seul. Dans Claude Code : /plugin, onglet Marketplaces, messagingme, « Update marketplace » (ou « Enable auto-update » pour la suite). En terminal : claude plugin update messagingme@messagingme ; sous Windows, dans PowerShell, écrivez claude.cmd au lieu de claude (PowerShell bloque le script claude.ps1). Le nouveau code se charge à la session suivante, ou après /reload-plugins.
 
 ## I had already added the server by hand: what now?
 

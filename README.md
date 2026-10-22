@@ -69,7 +69,7 @@ Each line leads to its page: the use case with its film and its code, or the doc
 - the Messaging Me MCP server (`https://api.messagingme.app/mcp`), authorized with OAuth: no key in your files;
 - `/messagingme:demarrer`, the setup entry point;
 - `/messagingme:rappels`: Appointment reminders, with the code to adapt in your app;
-- skills: the setup (`mise-en-service`), the WhatsApp rules (`regles-whatsapp`) and the FAQ (`faq`).
+- skills: the setup (`mise-en-service`), the Shopify store connection (`shopify`), the WhatsApp rules (`regles-whatsapp`) and the FAQ (`faq`).
 <!-- contenu:fin -->
 
 The tools of the MCP server, by family:
@@ -83,6 +83,7 @@ The tools of the MCP server, by family:
 - **Templates**: `list_templates`, `get_template_status`, `create_template`, `send_template_to_contact`, `get_message_status`
 - **Contacts and campaigns**: `search_contacts`, `get_contact`, `find_contacts`, `tag_contacts`, `list_fields`, `create_field`, `set_contact_field`, `prepare_campaign`, `launch_campaign`, `list_scenarios`
 - **Chat bubble**: `list_widgets`, `create_widget`, `update_widget`
+- **Shopify store**: `connect_shopify`, `set_shopify_message`, `get_shopify_state`, `disconnect_shopify`
 - **Webhooks**: `create_webhook_endpoint`, `list_webhook_endpoints`, `send_test_event`, `get_webhook_deliveries`, `replay_webhook_delivery`
 - **Statistics**: `get_message_stats`, `get_campaign_stats`, `get_ai_stats`
 <!-- outils:fin -->

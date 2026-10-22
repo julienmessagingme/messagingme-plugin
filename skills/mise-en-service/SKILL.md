@@ -30,14 +30,31 @@ terminal cuts at the edge of the screen).
   account for its payment method, so templates do not go out: give the user the numbered steps of
   `etapes_carte_meta`; it usually clears within 20 minutes of adding the card), `repondeur_gele_par_l_offre` (the responder the
   user chose, such as Meta's agent, is frozen by the current plan: tell them, never replace it), `lecture_manquee:<part>`
-  (that part could not be read: say so, do not guess).
+  (that part could not be read: say so, do not guess). On the WhatsApp Business app track (`numero.filiere`
+  `application`): `numero_coupe` (WhatsApp cut the number, or the device was removed from the phone: nothing goes
+  through; offer a new link, or another number if WhatsApp cut it) and `numero_en_sommeil` (no message for 30 days, the
+  connection sleeps: a new link wakes it).
 - A responder already chosen (`repondeur.mode_choisi` is `mba`, `scenario` or `application`) skips the AI agent steps:
   build an AI agent only if the user asks for one.
 
 ## connecter_numero: the WhatsApp number
 
-The `consigne` of `start_whatsapp_connection` starts with what Meta requires (a Meta Business account, that is a
-business portfolio, and for their own number one that is not used in the WhatsApp app): relay it once, before the link.
+First the track (`filiere`), unless `numero.filiere` from `get_setup_state` already says `application`. Ask once:
+**"Do you have a Meta Business account (a business portfolio at Meta)?"**
+
+- **Yes**: the official WhatsApp API (`filiere` `api`, the default), steps 1 to 4 below.
+- **No, or "I don't know"**: the WhatsApp Business app track (`filiere` `application`), for a workspace without a Meta
+  Business account: the number is a WhatsApp Business app account linked by a QR code, like a linked device. Say it in
+  one sentence before going on: this is not the official API, WhatsApp can cut a number, and Pro needs the API. For a
+  trial, recommend a number we provide. Then `start_whatsapp_connection` with `filiere` `application` and mode `fourni`,
+  or mode `apporte` with `numero` (the phone number of their WhatsApp Business app account, country code included).
+  Relay the `consigne` (the link on its own line, then the steps, one per line), then call `watch_whatsapp_connection`
+  with `filiere` `application` in a loop, passing `etat_connu`, until `connecte: true`, following each `suite`: scanning
+  the QR code, the verification code to type into the app for a number we provide. No card at Meta on this track.
+
+The `consigne` of `start_whatsapp_connection` for the API starts with what Meta requires (a Meta Business account, that
+is a business portfolio, and for their own number one that is not used in the WhatsApp app): relay it once, before the
+link.
 
 1. If `numero.fourni` is already set, a number was assigned to the workspace earlier: resume with mode `fourni`,
    without asking again. Otherwise ask which number to use:

@@ -79,12 +79,12 @@ The tools of the MCP server, by family:
 - **WhatsApp number**: `start_whatsapp_connection`, `watch_whatsapp_connection`, `get_number_subscription`, `manage_number_subscription`, `resubscribe_number`, `return_number_at_plan_end`
 - **AI agent**: `list_agents`, `get_agent`, `create_agent`, `update_agent`, `set_agent_tools`, `set_agent_action`, `delete_agent_action`, `test_agent`, `activate_agent`, `set_default_responder`, `set_transfer_mode`, `set_business_hours`
 - **Agent knowledge**: `list_knowledge`, `add_knowledge`, `delete_knowledge`, `preview_site`, `import_site`, `import_document_text`
-- **Conversations**: `list_conversations`, `get_conversation`, `get_messages`, `reply_in_open_window`, `send_message`, `tag_conversation`, `assign_conversation`, `get_conversation_insights`
-- **Templates**: `list_templates`, `get_template_status`, `create_template`, `send_template_to_contact`, `get_message_status`
-- **Contacts and campaigns**: `search_contacts`, `get_contact`, `find_contacts`, `tag_contacts`, `list_fields`, `create_field`, `set_contact_field`, `prepare_campaign`, `launch_campaign`, `list_scenarios`
+- **Conversations**: `list_conversations`, `get_conversation`, `get_messages`, `reply_in_open_window`, `send_message`, `control_conversation`, `tag_conversation`, `assign_conversation`, `get_conversation_insights`
+- **Templates**: `list_templates`, `get_template_status`, `create_template`, `update_template`, `delete_template`, `send_template_to_contact`, `get_message_status`
+- **Contacts and campaigns**: `search_contacts`, `get_contact`, `block_contact`, `find_contacts`, `tag_contacts`, `list_fields`, `create_field`, `set_contact_field`, `prepare_campaign`, `launch_campaign`, `control_campaign`, `list_scenarios`
 - **Chat bubble**: `list_widgets`, `create_widget`, `update_widget`
-- **Shopify store**: `connect_shopify`, `set_shopify_message`, `get_shopify_state`, `disconnect_shopify`
-- **Webhooks**: `create_webhook_endpoint`, `list_webhook_endpoints`, `send_test_event`, `get_webhook_deliveries`, `replay_webhook_delivery`
+- **Shopify store**: `connect_shopify`, `set_shopify_message`, `get_shopify_state`, `preview_shopify_customers`, `import_shopify_customers`, `disconnect_shopify`
+- **Webhooks**: `create_webhook_endpoint`, `list_webhook_endpoints`, `update_webhook_endpoint`, `delete_webhook_endpoint`, `send_test_event`, `get_webhook_deliveries`, `replay_webhook_delivery`
 - **Statistics**: `get_message_stats`, `get_campaign_stats`, `get_ai_stats`
 <!-- outils:fin -->
 

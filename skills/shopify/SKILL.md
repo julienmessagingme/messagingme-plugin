@@ -1,7 +1,7 @@
 ---
 name: shopify
-description: Connects the user's Shopify store to Messaging Me so that customers receive WhatsApp messages when an order is paid or shipped, and a reminder when they abandon a checkout - creates the store app with the Shopify CLI in the merchant's own organization, installs it with one click, keeps its secret and sets the messages. Use when the user wants to connect Shopify, send order confirmations, shipping updates or abandoned checkout reminders on WhatsApp, or check or cut the Shopify connection.
-allowed-tools: mcp__plugin_messagingme_messagingme__get_shopify_state, mcp__plugin_messagingme_messagingme__list_templates, mcp__plugin_messagingme_messagingme__get_template_status, mcp__plugin_messagingme_messagingme__get_setup_state
+description: Connects the user's Shopify store to Messaging Me so that customers receive WhatsApp messages when an order is paid or shipped, and a reminder when they abandon a checkout, and imports the store's customers who subscribed to marketing - creates the store app with the Shopify CLI in the merchant's own organization, installs it with one click, keeps its secret and sets the messages. Use when the user wants to connect Shopify, send order confirmations, shipping updates or abandoned checkout reminders on WhatsApp, import their Shopify customers, or check or cut the Shopify connection.
+allowed-tools: mcp__plugin_messagingme_messagingme__get_shopify_state, mcp__plugin_messagingme_messagingme__preview_shopify_customers, mcp__plugin_messagingme_messagingme__list_templates, mcp__plugin_messagingme_messagingme__get_template_status, mcp__plugin_messagingme_messagingme__get_setup_state
 ---
 
 # Connect a Shopify store
@@ -99,6 +99,22 @@ user affirms that their customers agreed (`customers_consented`).
 2. Once Meta approves it, call `set_shopify_message` with `event` set to `checkout_abandoned`, its `variables`, and
    `delay_minutes`: how long after the checkout last changed the reminder leaves (60 by default, from 15 to 4320).
 3. Only one reminder per checkout, and none if an order came out of it in the meantime, even unpaid.
+
+## Import the store's customers
+
+Only the customers who subscribed to marketing in Shopify (email or SMS) and have a valid phone are imported. They arrive
+WITHOUT WhatsApp consent: an email or SMS agreement is not a WhatsApp one, so they get no marketing until they agree on
+WhatsApp, and a customer who said STOP stays opted out. Each imported record counts toward the plan's contact limit, and
+managing that limit is the user's call.
+
+1. Count first with `preview_shopify_customers`, which writes nothing. Tell the user, in plain words: how many subscribed
+   customers have a phone, how many are already in the workspace, how many are new, how many free places the plan
+   leaves, and how many an import would write. When `complete` is false, these numbers are a minimum: older customers
+   were not read yet, and importing again later takes the next ones.
+2. Let the user choose: import up to the free places (the newest customers first), fewer, or move to a higher plan first
+   (`get_plan`). Never import before they answer.
+3. Call `import_shopify_customers` with `max_contacts`, the number they chose. A number above the free places is refused
+   and nothing is written. The records are tagged Shopify; calling again imports the next ones without duplicates.
 
 ## Check or cut
 

@@ -114,8 +114,8 @@ file a complaint), and only then: `set_agent_action` on the agent, with a name, 
 and what the agent then tells the customer) and the details to collect, each with a code, a label and a type
 (`texte`, `nombre`, `date`, `email`, or `liste` with its values), all optional for the agent. The action is sent at
 most once a day per contact through the outgoing webhook `agent.action`, unchecked by default. If an address already
-serves the app (`list_webhook_endpoints`), add `agent.action` to it (console, Developers > Webhooks sortants, or
-`PATCH /v1/webhooks/{id}` with its full list of types) rather than creating a second one, which would have another
+serves the app (`list_webhook_endpoints`), add `agent.action` to it (`update_webhook_endpoint`, with its full list of
+types, which replaces the current one) rather than creating a second one, which would have another
 secret; otherwise `create_webhook_endpoint` with the type `agent.action`. Then write the handler in the user's app (the
 payload is in the API documentation, the details in `fields` by code). Never change a field's code once the app reads
 it. To edit an action, `set_agent_action` with its `action_id`: what you leave out stays, `champs` given replaces the

@@ -48,7 +48,9 @@ First the track (`filiere`), unless `numero.filiere` from `get_setup_state` alre
   one sentence before going on: this is not the official API, WhatsApp can cut a number, and Pro needs the API. For a
   trial, recommend a number we provide. Then `start_whatsapp_connection` with `filiere` `application` and mode `fourni`,
   or mode `apporte` with `numero` (the phone number of their WhatsApp Business app account, country code included).
-  Relay the `consigne` (the link on its own line, then the steps, one per line), then call `watch_whatsapp_connection`
+  The user sees nothing of a tool result: your message itself must contain the full `url`, on its own line, in plain
+  text (never in a code block, never "I gave you the link" without it), then the steps of `consigne`, one per line.
+  Write it BEFORE calling `watch_whatsapp_connection`, which then waits. Then call `watch_whatsapp_connection`
   with `filiere` `application` in a loop, passing `etat_connu`, until `connecte: true`, following each `suite`: scanning
   the QR code, the verification code to type into the app for a number we provide. No card at Meta on this track.
 

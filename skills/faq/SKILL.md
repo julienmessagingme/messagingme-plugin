@@ -11,11 +11,19 @@ Answer in the user’s language, with the matching version below (English, then 
 
 ## Is this the official WhatsApp API?
 
-Yes: Meta’s WhatsApp Business Platform. Messaging Me is a Meta Tech Provider, with no WhatsApp Web automation. The WhatsApp Business account lives in your Business Manager and stays yours.
+With a Meta Business account, yes: Meta’s WhatsApp Business Platform. Messaging Me is a Meta Tech Provider, and the WhatsApp Business account lives in your Business Manager and stays yours. Without a Meta Business account, you can link the WhatsApp Business app on your phone: it goes through WhatsApp as a linked device, it is not the official API.
 
 **FR · C’est l’API officielle de WhatsApp ?**
 
-Oui : la WhatsApp Business Platform de Meta. Messaging Me est Tech Provider de Meta, sans aucune automatisation de WhatsApp Web. Le compte WhatsApp Business est dans votre Business Manager et reste à vous.
+Avec un compte Meta Business, oui : la WhatsApp Business Platform de Meta. Messaging Me est Tech Provider de Meta, et le compte WhatsApp Business est dans votre Business Manager et reste à vous. Sans compte Meta Business, vous pouvez relier l’application WhatsApp Business de votre téléphone : elle passe par WhatsApp comme un appareil lié, ce n’est pas l’API officielle.
+
+## I have no Meta Business account: can I still use it?
+
+Yes: link the WhatsApp Business app on your phone with a QR code, by asking Claude. The AI agent answers there, Claude reads and replies there, and you can still reply from the phone. It goes through WhatsApp as a linked device: it is not the official API, and WhatsApp can cut a number. Templates, campaigns and the Pro plan need the API, with a Meta Business account.
+
+**FR · Je n’ai pas de compte Meta Business : je peux quand même ?**
+
+Oui : reliez l’application WhatsApp Business de votre téléphone par un QR code, en le demandant à Claude. L’agent IA y répond, Claude y lit et y répond, et vous pouvez toujours répondre depuis le téléphone. Elle passe par WhatsApp comme un appareil lié : ce n’est pas l’API officielle, et WhatsApp peut couper un numéro. Les modèles, les campagnes et l’offre Pro demandent l’API, avec un compte Meta Business.
 
 ## What do I need at Meta before I start?
 

@@ -39,29 +39,80 @@ terminal cuts at the edge of the screen).
 
 ## connecter_numero: the WhatsApp number
 
-First the track (`filiere`), unless `numero.filiere` from `get_setup_state` already says `application`. Ask once:
-**"Do you have a Meta Business account (a business portfolio at Meta)?"**
+First the track (`filiere`) and the number. Skip the questions when `get_setup_state` already settles them: when
+`numero.filiere` says `application`, resume on that track. When `numero.fourni` is set while `numero.filiere` says
+`api`, a number we provide was paid for, but its track may not be chosen yet (on the QR code track, the account only
+shows up once the user has created it in the app): ask only whether they are linking it through Meta's window or by QR
+code, one sentence on each, then resume on that track with mode `fourni`.
 
-- **Yes**: the official WhatsApp API (`filiere` `api`, the default), steps 1 to 4 below.
-- **No, or "I don't know"**: the WhatsApp Business app track (`filiere` `application`), for a workspace without a Meta
-  Business account: the number is a WhatsApp Business app account linked by a QR code, like a linked device. Say it in
-  one sentence before going on: this is not the official API, WhatsApp can cut a number, and Pro needs the API. For a
-  trial, recommend a number we provide. Then `start_whatsapp_connection` with `filiere` `application` and mode `fourni`,
-  or mode `apporte` with `numero` (the phone number of their WhatsApp Business app account, country code included).
-  The user sees nothing of a tool result: your message itself must contain the full `url`, on its own line, in plain
-  text (never in a code block, never "I gave you the link" without it), then the steps of `consigne`, one per line.
-  Write it BEFORE calling `watch_whatsapp_connection`, which then waits. Then call `watch_whatsapp_connection`
-  with `filiere` `application` in a loop, passing `etat_connu`, until `connecte: true`, following each `suite`: scanning
-  the QR code, the verification code to type into the app for a number we provide. No card at Meta on this track.
+Almost nobody knows what a Meta Business account or the WhatsApp Business app is, nor why it matters here: be
+didactic. Before the first question, explain these five words in plain sentences, briefly, in the user's language:
 
-The `consigne` of `start_whatsapp_connection` for the API starts with what Meta requires (a Meta Business account, that
-is a business portfolio, and for their own number one that is not used in the WhatsApp app): relay it once, before the
-link.
+- **Meta Business account**: the business's account at Meta (a "business portfolio", formerly Business Manager). It is
+  free; someone who advertises on Facebook or Instagram probably has one. Many have the WhatsApp Business app but no
+  Meta Business account: reassure them, there is nothing to prepare, Meta's window offers to create it along the way
+  with their Facebook profile (also when moving to coexistence). Say it in general terms, without describing Meta's
+  screens.
+- **WhatsApp Business app**: the free app for businesses, on the phone, distinct from WhatsApp. It does not send
+  messages on its own.
+- **The official API** (`filiere` `api`, the default): the same WhatsApp, driven by software, on a number connected
+  through Meta. It writes first (templates: confirmations, reminders, campaigns, Shopify messages), and Meta bills the
+  messages. It needs a Meta Business account, and the number leaves the WhatsApp app.
+- **The QR code** (`filiere` `application`): the WhatsApp Business app linked to Messaging Me like a linked device,
+  without a Meta Business account. The AI agent answers the customers who write; the number NEVER writes first (no
+  templates, campaigns, first messages or Shopify messages: WhatsApp cuts a linked device that writes to strangers).
+  WhatsApp can cut the number (with their own number, it is that one), and Pro needs the API.
+- **Coexistence**: the number keeps the WhatsApp Business app and also goes through the API, if the user wants it.
+  Meta keeps it for numbers already used in the app for a while (we say about a month). It is being finished and not
+  announced yet: present it as coming soon and do not set it up on your own initiative. If the user asks for it now,
+  `start_whatsapp_connection` with mode `coexistence` connects it (then wait with `watch_whatsapp_connection` in the
+  same mode), but say first that what they type in the app does not show in Messaging Me yet.
 
-1. If `numero.fourni` is already set, a number was assigned to the workspace earlier: resume with mode `fourni`,
-   without asking again. Otherwise ask which number to use:
+Then ask these questions ONE AT A TIME, in this order. Never pick a track on a guess.
+
+1. **"Do you have a Meta Business account?"** Keep the answer for question 5. "I don't know": tell them how to check
+   (sign in to business.facebook.com with their Facebook account: the menu under "Home", at the top left, lists their
+   portfolios), then ask again; still unsure, take it as No.
+2. **"Do you use the WhatsApp Business app?"** Yes: question 3. No: question 5.
+3. **"Do you want to automate that number?"** Yes: question 4. No: question 5, for another number.
+4. **"For how long has this number been used in the WhatsApp Business app?"**
+   - More than a month: coexistence will fit it, and it is coming soon (with their Meta Business account, or one that
+     Meta's window creates). Until then, offer to link it by QR code (mode `apporte`) so the AI agent answers
+     customers.
+   - Less than a month: link it by QR code now (mode `apporte`); once it has served a month, coexistence (coming soon)
+     will let it write first.
+   In both cases, if the user needs to write first now (Shopify messages, templates), the API with another number:
+   question 5.
+5. With a Meta Business account: **"Do you have a number available to automate WhatsApp, one that is not used in the
+   WhatsApp app?"** Yes: the API with their number (mode `apporte`). No: the API with a number we provide (mode
+   `fourni`). Then steps 1 to 4 below.
+   Without one: **"Do you have a number to automate WhatsApp?"** Then explain the difference and let the user choose:
+   - the API: a Meta Business account (Meta's window offers to create it along the way, with their Facebook profile)
+     and a payment method at Meta before the first template, but the number writes first;
+   - the QR code: no account, but the number only answers, and coexistence later (coming soon), after a month in the
+     WhatsApp Business app.
+   With their number: the API with mode `apporte`, or the QR code with mode `apporte` (the number must then be in the
+   WhatsApp Business app on their phone, and WhatsApp could cut it: a number we provide keeps theirs safe, recommended
+   for a trial). Without one: a number we provide (3.50 EUR excl. tax a month, included in Pro), with the API (mode
+   `fourni`) or the QR code (mode `fourni`).
+
+**On the QR code track**, say in one sentence before the link that this is not the official API and that the number
+can only REPLY. Then `start_whatsapp_connection` with `filiere` `application` and mode `fourni`, or mode `apporte` with
+`numero` (the phone number of their WhatsApp Business app account, country code included). The user sees nothing of a
+tool result: your message itself must contain the full `url`, on its own line, in plain text (never in a code block,
+never "I gave you the link" without it), then the steps of `consigne`, one per line. Write it BEFORE calling
+`watch_whatsapp_connection`, which then waits. Then call `watch_whatsapp_connection` with `filiere` `application` in a
+loop, passing `etat_connu`, until `connecte: true`, following each `suite`: scanning the QR code, the verification code
+to type into the app for a number we provide. No card at Meta on this track.
+
+**On the API track**, steps 1 to 4. The `consigne` of `start_whatsapp_connection` for the API starts with what Meta
+requires (a Meta Business account, that is a business portfolio, which Meta's window can create, and for their own
+number one that is not used in the WhatsApp app): relay it once, before the link.
+
+1. If `numero.fourni` is already set and the user goes through Meta's window, a number was assigned to the workspace
+   earlier: resume with mode `fourni`, without asking again. Otherwise use the number the questions settled:
    - **a number we provide** (`fourni`): a dedicated number, paid on the page before it is assigned, included in Pro;
-   - **their own number** (`apporte`): first ask whether it is used in the WhatsApp app. A number connected to the API
+   - **their own number** (`apporte`): check that it is not used in the WhatsApp app. A number connected to the API
      leaves the WhatsApp app; Meta's window refuses it until it is removed from the app.
 2. `start_whatsapp_connection` with that mode returns a link valid for one hour and its `consigne`. Write the full
    `url` on its own line, then the numbered steps of `consigne`, one per line, in the user's language: the page shows

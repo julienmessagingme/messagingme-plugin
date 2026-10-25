@@ -75,11 +75,11 @@ Claude lit le motif du refus (`get_template_status`), propose une version corrig
 
 ## My AI agent stopped answering.
 
-Three causes. The AI credit is used up: `get_credit`, then `buy_credit`. The agent was deactivated, or is no longer the one answering: `get_setup_state` tells. Someone replied by hand, Claude included (`reply_in_open_window`): replying takes over the conversation, and the agent stays silent until it gets it back, on its own after a delay without a new reply, or right away: `control_conversation` hands it back from Claude, or “Hand back” in the console Inbox.
+Four causes. The AI credit is used up: `get_credit`, then `buy_credit`. The agent was deactivated, or is no longer the one answering: `get_setup_state` tells. Someone replied by hand, Claude included (`reply_in_open_window`): replying takes over the conversation, and the agent stays silent until it gets it back, on its own after a delay without a new reply, or right away: `control_conversation` hands it back from Claude, or “Hand back” in the console Inbox. And on Free, a new customer who writes to a workspace that already has its 100 contacts does not get in, so the agent does not answer them: `get_plan` shows the count.
 
 **FR · Mon agent IA ne répond plus.**
 
-Trois causes. Le crédit IA est épuisé : `get_credit`, puis `buy_credit`. L’agent a été désactivé, ou n’est plus celui qui répond : `get_setup_state` le dit. Quelqu’un a répondu à la main, Claude compris (`reply_in_open_window`) : répondre prend la conversation, et l’agent se tait jusqu’à ce qu’elle lui revienne, d’elle-même après un délai sans nouvelle réponse, ou tout de suite : `control_conversation` la rend depuis Claude, ou « Rendre la main » dans l’Inbox de la console.
+Quatre causes. Le crédit IA est épuisé : `get_credit`, puis `buy_credit`. L’agent a été désactivé, ou n’est plus celui qui répond : `get_setup_state` le dit. Quelqu’un a répondu à la main, Claude compris (`reply_in_open_window`) : répondre prend la conversation, et l’agent se tait jusqu’à ce qu’elle lui revienne, d’elle-même après un délai sans nouvelle réponse, ou tout de suite : `control_conversation` la rend depuis Claude, ou « Rendre la main » dans l’Inbox de la console. Et en Free, un nouveau client qui écrit à un espace qui a déjà ses 100 contacts n’entre pas, donc l’agent ne lui répond pas : `get_plan` montre le compte.
 
 ## Can my AI agent act in my application?
 
@@ -120,6 +120,14 @@ Three limits. The plan’s: 1,000 templates a month on Free, unlimited on Pro; r
 **FR · Combien de messages puis-je envoyer ?**
 
 Trois limites. Celle de l’offre : 1 000 modèles par mois en Free, illimités en Pro ; les réponses dans la fenêtre de 24 heures n’y comptent jamais. Celle de l’API : un quota par jour et par espace, selon l’offre, où les modèles et les réponses se comptent à part (un envoi de modèles ne prend jamais la place des réponses), relevable sur demande ; au-delà, le refus quota_exceeded jusqu’au lendemain. Et celle de Meta, qui fixe ce qu’un numéro peut envoyer et l’augmente avec sa qualité.
+
+## What happens when my Free workspace reaches 100 contacts?
+
+On Free, all your contacts count, those who write to you first included. Once the workspace is full, creating or importing a contact is refused (plan_limit_reached), and a new customer who writes to you does not get in: no record, no conversation, no reply from your AI agent. An email lets you know, one a day at most. If that customer wrote STOP, their refusal is still kept. Your existing contacts write and receive as before. To make room, delete the contacts you no longer need through the API (DELETE /v1/contacts/{contactId}), with a key that has the contacts:admin scope: it is created on the console’s API keys page, not by Claude, and the deletion is permanent. Or move to Pro, where those who write to you first do not count and are never turned away.
+
+**FR · Que se passe-t-il quand mon espace Free atteint ses 100 contacts ?**
+
+En Free, tous vos contacts comptent, ceux qui vous écrivent les premiers compris. Une fois l’espace plein, créer ou importer un contact est refusé (plan_limit_reached), et un nouveau client qui vous écrit n’entre pas : ni fiche, ni conversation, ni réponse de votre agent IA. Un e-mail vous prévient, un par jour au plus. Si ce client a écrit STOP, son refus est quand même gardé. Vos contacts déjà là écrivent et reçoivent comme avant. Pour faire de la place, supprimez les contacts dont vous n’avez plus besoin par l’API (DELETE /v1/contacts/{contactId}), avec une clé qui a le droit contacts:admin : elle se crée dans la page Clés d’API de la console, pas par Claude, et la suppression est définitive. Ou passez au Pro, où ceux qui vous écrivent les premiers ne comptent pas et ne sont jamais refusés.
 
 ## Can Claude prepare and launch a campaign?
 

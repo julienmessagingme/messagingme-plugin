@@ -123,7 +123,9 @@ record counts toward the plan's contact limit, and managing that limit is the us
    leaves, and how many an import would write. When `complete` is false, these numbers are a minimum: older customers
    were not read yet, and importing again later takes the next ones.
 2. Let the user choose: import up to the free places (the newest customers first), fewer, or move to a higher plan first
-   (`get_plan`). Never import before they answer.
+   (`get_plan`). On the Free plan, say it before they choose: customers who write first count too, so filling every
+   place leaves none for a new customer who writes, whose message then does not get in. Never import before they
+   answer.
 3. Call `import_shopify_customers` with `max_contacts`, the number they chose. A number above the free places is refused
    and nothing is written. The records are tagged Shopify; calling again imports the next ones without duplicates.
 

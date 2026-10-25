@@ -25,7 +25,11 @@ Speak the user's language. These rules come from Meta; Messaging Me applies them
 
 ## Consent and STOP
 
-- Send a template only to people who agreed to receive messages from the business.
+- Send a template only to people who agreed to receive messages from the business. Through Claude, that agreement is
+  the user's responsibility for two tools: sending a template to one number (`send_template_to_contact`) and importing
+  the Shopify customers (`import_shopify_customers`) declare it on their behalf, and the record says who declared it;
+  for these two there is no consent question to ask. Campaigns still only reach contacts who agreed, and the Shopify
+  abandoned checkout reminder still needs the merchant's answer (`customers_consented`).
 - A person who answers STOP is unsubscribed, and Messaging Me refuses to send to them. The person can also refuse
   marketing from the business inside WhatsApp itself.
 

@@ -32,29 +32,35 @@ your phone. An interrupted setup resumes where it stopped.
 This is where most people get lost, so here are the five words first.
 
 - **Meta Business account**: your business's account at Meta (a "business portfolio", formerly Business Manager). It
-  is free; if you advertise on Facebook or Instagram, you probably have one. Otherwise, nothing to prepare: Meta's
-  window offers to create it during the setup, with your Facebook profile.
+  is free; if you advertise on Facebook or Instagram, you probably have one. Otherwise, nothing to prepare: with your
+  Facebook profile, Meta's window has you create it during the setup (business name, email, country, website).
 - **WhatsApp Business app**: the free app for businesses, on your phone, distinct from WhatsApp.
 - **The official API**: the same WhatsApp, driven by software, on a number connected through Meta. It writes first
-  (templates: confirmations, reminders, campaigns, Shopify messages), and Meta bills the messages. It needs a Meta
-  Business account (Meta's window offers to create it) and a payment method at Meta before the first template, and
-  the number leaves the WhatsApp app.
-- **The QR code**: your WhatsApp Business app linked to Messaging Me like a linked device, with no Meta Business
-  account. Your AI agent answers the customers who write to you, but nothing goes out first: WhatsApp cuts a linked
-  device that writes to strangers, and it can cut the number.
-- **Coexistence** (coming soon): your number keeps the WhatsApp Business app and also goes through the API, if you
-  want, once it has been used in the app for about a month.
+  (templates: confirmations, reminders, campaigns, Shopify messages). It needs a Meta Business account and a payment
+  method at Meta, which bills the templates, and the replies too beyond a monthly allowance. The number leaves the
+  WhatsApp app, unless you keep it.
+- **Keeping your WhatsApp Business app** (coming soon): the same number stays in the app on your phone and also goes
+  through the API. You keep replying from your phone, and the messages your application sends go out from Messaging
+  Me.
+- **The QR code**: your WhatsApp Business app linked to Messaging Me like a linked device, with no account at all (no
+  Facebook profile, no card at Meta), and Meta does not bill its replies. But it only answers the customers who write
+  to you:
+  nothing goes out first, since WhatsApp cuts a linked device that writes to strangers, and it can cut the number.
+  Later, to write first, the same number keeps the app and goes through the official API ("Keep my WhatsApp Business
+  app", from Claude or the console's Home): Meta's window creates the Meta Business account, and your conversations
+  stay.
 
 Then `/messagingme:demarrer` asks you, one question at a time:
 
-1. **Do you have a Meta Business account?** Not sure: business.facebook.com lists your portfolios, under "Home".
-2. **Do you use the WhatsApp Business app, and do you want to automate that number?** Used there for more than a
-   month, it will keep the app through coexistence (coming soon; until then, it answers by QR code). For less than a
-   month, it answers by QR code now, and coexistence (coming soon) follows once it has served a month.
-3. **Otherwise, another number.** With a Meta Business account, your number (one not used in the WhatsApp app) or a
-   provided one goes through the official API. Without one, you choose: the official API (a Meta Business account to
-   create, but your messages go out first) or the QR code (no account, but it only answers, and coexistence later,
-   coming soon).
+1. **Do you have a Meta Business account?** No is not a problem: Meta's window has you create one, or the QR code does
+   without it. Not sure: business.facebook.com lists your portfolios, under "Home".
+2. **Do you have the WhatsApp Business app on your business's number?**
+3. **If so, do you want to keep this number in the app, or take a separate number?** Keeping it comes soon.
+4. **Without a Meta Business account, for a separate or a new number: the QR code, or an account created along the
+   way?** The QR code needs no account at all and Meta does not bill its replies, but it only answers (later, the same
+   number can keep its app and go through Meta to write first); the account lets your number write first right away.
+   With a Meta Business account, Claude skips this question.
+5. **Do you have an available number?** It goes through the official API; without one, a provided number does.
 
 The price of a provided number is under [What it costs](#what-it-costs).
 

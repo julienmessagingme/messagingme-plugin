@@ -1,7 +1,7 @@
 {
   "name": "messagingme",
   "displayName": "Messaging Me",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "WhatsApp for your app, from Claude Code: an official number, an AI agent that answers your customers and a chat bubble for your site, with Messaging Me.",
   "author": { "name": "SmartLink", "url": "https://app.messagingme.fr" },
   "homepage": "https://app.messagingme.fr/en/developers/",

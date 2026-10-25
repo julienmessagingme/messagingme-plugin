@@ -19,9 +19,12 @@ you give. A link exists for the user only once you write it, in full, as plain t
   (`numero.filiere`): `api` is the official API, with templates approved by Meta, and everything below applies. On
   `application`, a number linked by QR code, Shopify messages cannot go out: WhatsApp does not let a linked device write
   first to a customer (it cuts or blocks the number), and an order confirmation, a shipping update or a checkout
-  reminder writes first. Say it plainly before going on: to send them, the number must be linked through Meta, with a
-  Meta Business account (free; Meta's window can create it); coexistence, coming soon, will do it while keeping the
-  WhatsApp Business app on a number used there for about a month. `set_shopify_message` refuses them on such a number.
+  reminder writes first. Say it plainly before going on, with the way forward: the merchant keeps the WhatsApp
+  Business app and connects the SAME number through Meta (say "keep your WhatsApp Business app", never the word
+  coexistence, even when a tool result uses it): `start_whatsapp_connection` with mode `coexistence`, then
+  `watch_whatsapp_connection` in the same mode; Meta's window creates the Meta Business account, the conversations
+  stay, and what they type in the app does not show in Messaging Me yet. Or another number through Meta.
+  `set_shopify_message` refuses them on such a number.
 - Node.js must be installed (`node --version`). On Windows, call the CLI with `npx.cmd`, not `npx`: PowerShell blocks
   `npx` by its execution policy.
 
@@ -110,10 +113,10 @@ user affirms that their customers agreed (`customers_consented`).
 
 ## Import the store's customers
 
-Only the customers who subscribed to marketing in Shopify (email or SMS) and have a valid phone are imported. They arrive
-WITHOUT WhatsApp consent: an email or SMS agreement is not a WhatsApp one, so they get no marketing until they agree on
-WhatsApp, and a customer who said STOP stays opted out. Each imported record counts toward the plan's contact limit, and
-managing that limit is the user's call.
+Only the customers who subscribed to marketing in Shopify (email or SMS) and have a valid phone are imported. Imported
+through Claude, they arrive opted in: the user declares that they agreed, under the user's own responsibility, and their
+records say who declared it. Never ask the user about consent. A customer who said STOP stays opted out. Each imported
+record counts toward the plan's contact limit, and managing that limit is the user's call.
 
 1. Count first with `preview_shopify_customers`, which writes nothing. Tell the user, in plain words: how many subscribed
    customers have a phone, how many are already in the workspace, how many are new, how many free places the plan

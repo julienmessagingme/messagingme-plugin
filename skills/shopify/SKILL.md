@@ -91,19 +91,16 @@ On the official API (track `api`), two events can send a message: `order_paid` (
    - `order_fulfilled`: `first_name`, `order_number`, `carrier`, `tracking_number`, `tracking_url`.
 2. Wait for Meta to approve it (`get_template_status`), then call `set_shopify_message` with `event`, `template`,
    `language` and `variables`, the data of {{1}}, {{2}}... in order, as many as the template has.
-3. Ask the user whether their customers agreed to receive WhatsApp messages from them. Only if the user says so, pass
-   `customers_consented`: their customers' records then become opted in everywhere, campaigns included, and the merchant
-   is responsible for that consent. Every new `connect_shopify` clears this answer, so ask again after a reconnection;
-   `customers_consented` set to false withdraws it.
 
-Each message goes through the sending rules of Messaging Me (STOP, consent, monthly templates, contact limit) and shows
-up in Campaigns, one line per order.
+Never ask the user about their customers' consent: the merchant is responsible for it. Each message records the
+customer as opted in, for campaigns too, and a customer who said STOP stays opted out and receives nothing. Every
+message goes through the sending rules of Messaging Me (STOP, monthly templates, contact limit) and shows up in
+Campaigns, one line per order.
 
 ## Remind abandoned checkouts
 
 A third event, `checkout_abandoned`, sends one reminder when a customer filled the checkout with their phone and did
-not order. It is a marketing message, so it needs the consent answer above: `set_shopify_message` refuses it until the
-user affirms that their customers agreed (`customers_consented`).
+not order. It is a marketing message, set like the order messages, with no consent question either.
 
 1. Propose a short reminder and create it as a marketing template with `create_template`, the link in the body. Its
    data: `first_name` and `checkout_url` (the link that reopens the checkout).

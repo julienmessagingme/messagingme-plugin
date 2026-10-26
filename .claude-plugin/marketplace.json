@@ -6,7 +6,7 @@
     {
       "name": "messagingme",
       "source": "./",
-      "description": "WhatsApp for your app, from Claude Code: an official number, an AI agent that answers your customers and a chat bubble for your site."
+      "description": "WhatsApp for your app, from Claude Code: your WhatsApp number, an AI agent that answers your customers and a chat bubble for your site."
     }
   ]
 }

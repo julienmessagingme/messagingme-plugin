@@ -79,14 +79,17 @@ Each line leads to its page: the use case with its film and its code, or the doc
 ### Message them at the right time
 
 - [Order tracking when it ships, and the AI agent if the customer replies.](https://app.messagingme.fr/en/use-cases/order-notifications/)
+- [Your Shopify store connected by Claude: order confirmation, shipping notice, checkout reminder.](https://app.messagingme.fr/en/solutions/shopify-stores/)
 - [The reminder the day before the appointment: the customer confirms or reschedules with one button.](https://app.messagingme.fr/en/use-cases/appointment-reminders/)
 - [The welcome message at sign-up, with a button to the first use of your product.](https://app.messagingme.fr/en/use-cases/saas-onboarding-activation/)
 - [The failed payment reminder, with the link to update the card.](https://app.messagingme.fr/en/use-cases/failed-payment-recovery/)
 - [A campaign to your contacts, prepared by Claude and launched with your yes (Pro plan).](https://app.messagingme.fr/en/developers/prepare-a-campaign/)
+- [Your templates written by Claude and submitted to Meta, and the reason for a rejection.](https://console.messagingme.app/developers/api/templates?lang=en)
 
 ### Connect it to your app
 
 - [Every message received, delivered, read or failed, pushed to your app by a signed webhook.](https://console.messagingme.app/developers/api/webhooks?lang=en)
+- [Your webhooks created, tested and replayed from Claude.](https://console.messagingme.app/developers/api/webhook-endpoints?lang=en)
 - [Your sends through the API or the TypeScript SDK, safe to retry without duplicates thanks to the idempotency key.](https://console.messagingme.app/developers/api/sdk?lang=en)
 - [Your contacts and their consent, kept up to date from your app.](https://console.messagingme.app/developers/api/contacts?lang=en)
 <!-- construire:fin -->

@@ -14,10 +14,10 @@ you give. A link exists for the user only once you write it, in full, as plain t
 
 - Call `get_shopify_state`. If a store is already connected, say which one and go straight to the messages.
 - The workspace needs its WhatsApp number connected (`get_setup_state`); without it, nothing can be sent: connect it
-  first, with the questions of the setup (`connecter_numero` in the `mise-en-service` skill), which explain to the
-  merchant why the official API sends the store's messages and the QR code does not. Read its track
-  (`numero.filiere`): `api` is the official API, with templates approved by Meta, and everything below applies. On
-  `application`, a number linked by QR code, Shopify messages cannot go out: WhatsApp does not let a linked device write
+  first, with the questions of the setup (`connecter_numero` in the `mise-en-service` skill): every way they lead to
+  is an API number. Read its track (`numero.filiere`): `api` is the official API, with templates approved by Meta, and
+  everything below applies. On `application`, a number linked by QR code (an older way, no longer offered: never
+  propose it), Shopify messages cannot go out: WhatsApp does not let a linked device write
   first to a customer (it cuts or blocks the number), and an order confirmation, a shipping update or a checkout
   reminder writes first. Say it plainly before going on, with the way forward: the merchant keeps the WhatsApp
   Business app and connects the SAME number through Meta (say "keep your WhatsApp Business app", never the word

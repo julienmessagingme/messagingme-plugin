@@ -4,7 +4,7 @@ WhatsApp for your app, from Claude Code: your WhatsApp number, an AI agent that 
 chat bubble for your site, set up in one session with [Messaging Me](https://app.messagingme.fr/en/developers/).
 
 **No account to create, no key to copy. No WhatsApp number? We provide one. No Meta Business account? Meta's window
-creates it, or you link the WhatsApp Business app by QR code.**
+creates it along the way, and you can keep your WhatsApp Business app.**
 
 [![The plugin installed, the workspace authorized, the number connected and a first message received, in Claude Code](https://app.messagingme.fr/img/plugin-demo.gif)](https://app.messagingme.fr/en/developers/)
 
@@ -29,38 +29,32 @@ your phone. An interrupted setup resumes where it stopped.
 
 ## Which WhatsApp number?
 
-This is where most people get lost, so here are the five words first.
+This is where most people get lost, so here are the four words first.
 
-- **Meta Business account**: your business's account at Meta (a "business portfolio", formerly Business Manager). It
-  is free; if you advertise on Facebook or Instagram, you probably have one. Otherwise, nothing to prepare: with your
-  Facebook profile, Meta's window has you create it during the setup (business name, email, country, website).
+- **Meta Business account**: your business's account at Meta (a "business portfolio", formerly Business Manager), on
+  business.facebook.com. It is free; if you advertise on Facebook or Instagram, you probably have one. Otherwise,
+  nothing to prepare: with your Facebook profile, Meta's window has you create it during the setup (business name,
+  email, country, website).
 - **WhatsApp Business app**: the free app for businesses, on your phone, distinct from WhatsApp.
-- **The official API**: the same WhatsApp, driven by software, on a number connected through Meta. It writes first
-  (templates: confirmations, reminders, campaigns, Shopify messages). It needs a Meta Business account and a payment
-  method at Meta, which bills the templates, and the replies too beyond a monthly allowance. The number leaves the
-  WhatsApp app, unless you keep it.
-- **Keeping your WhatsApp Business app**: the same number stays in the app on your phone and also goes through the
-  API. You keep replying from your phone, and the messages your application sends go out from Messaging Me. What you
-  type in the app does not show in Messaging Me yet, and you need to open the app at least every two weeks.
-- **The QR code**: your WhatsApp Business app linked to Messaging Me like a linked device, with no account at all (no
-  Facebook profile, no card at Meta), and Meta does not bill its replies. But it only answers the customers who write
-  to you:
-  nothing goes out first, since WhatsApp cuts a linked device that writes to strangers, and it can cut the number.
-  Later, to write first, the same number keeps the app and goes through the official API ("Keep my WhatsApp Business
-  app", from Claude or the console's Home): Meta's window creates the Meta Business account, and your conversations
-  stay.
+- **API number**: a number connected through Meta to the official WhatsApp API, driven by Messaging Me. It sends your
+  messages (confirmations, reminders, campaigns, Shopify messages), and Meta bills them, the templates and the replies
+  beyond a monthly allowance, on a payment method you add at Meta.
+- **Keeping your WhatsApp Business app**: the number of your WhatsApp Business app also becomes an API number, without
+  leaving the app. You keep replying from your phone, and the messages your application sends go out from Messaging
+  Me. What you type in the app does not show in Messaging Me yet, and you need to open the app at least every two
+  weeks.
 
-Then `/messagingme:demarrer` asks you, one question at a time:
+Then `/messagingme:demarrer` asks you, one question at a time, the same three questions as the
+[Get started](https://app.messagingme.fr/en/get-started/) page:
 
-1. **Do you have a Meta Business account?** No is not a problem: Meta's window has you create one, or the QR code does
-   without it. Not sure: business.facebook.com lists your portfolios, under "Home".
-2. **Do you have the WhatsApp Business app on your business's number?**
-3. **If so, do you want to keep this number in the app, or take a separate number?**
-4. **Without a Meta Business account, for a separate or a new number: the QR code, or an account created along the
-   way?** The QR code needs no account at all and Meta does not bill its replies, but it only answers (later, the same
-   number can keep its app and go through Meta to write first); the account lets your number write first right away.
-   With a Meta Business account, Claude skips this question.
-5. **Do you have an available number?** It goes through the official API; without one, a provided number does.
+1. **Which plan?** Free, driven entirely from Claude Code, or Pro, which adds the console and includes a provided
+   number.
+2. **Do you have a Meta Business account?** Yes: your number becomes an API number, an available one of yours or a
+   provided one; if it is already in the WhatsApp Business app, you can keep it. No, or not sure: the next question
+   (business.facebook.com lists your portfolios, and a missing account is created along the way).
+3. **Do you already have the WhatsApp Business app?** Yes: you keep it. No: download it, put your business's number in
+   it, and connect it right away. Meta sometimes refuses a number that is too new: then use the app for a few days,
+   and come back.
 
 The price of a provided number is under [What it costs](#what-it-costs).
 
@@ -155,7 +149,7 @@ remote server, the Messaging Me MCP server at `https://api.messagingme.app/mcp`.
   opening a payment page) are marked as such, and payments always happen on Stripe's page, by you.
 - **Before you start.** A Messaging Me account (created during the setup). For the official API, a Facebook profile:
   Meta's window offers to create your Meta business portfolio during the setup; messages that Meta bills are charged
-  by Meta to your WhatsApp Business account. For the QR code, the WhatsApp Business app on your phone.
+  by Meta to your WhatsApp Business account. To keep your WhatsApp Business app, the app on your phone.
 
 Messaging Me is published by Messaging Me SAS (SmartLink), Paris. Privacy policy:
 https://www.messagingme.fr/en/politique-de-confidentialite-messaging-me/. Terms of use: https://www.messagingme.fr/en/conditions-d-utilisation/. Support:

@@ -11,27 +11,27 @@ Answer in the user’s language, with the matching version below (English, then 
 
 ## Is this the official WhatsApp API?
 
-With a Meta Business account, yes: Meta’s WhatsApp Business Platform. Messaging Me is a Meta Tech Provider, and the WhatsApp Business account lives in your Business Manager and stays yours. Without a Meta Business account, you can link the WhatsApp Business app on your phone: it goes through WhatsApp as a linked device, it is not the official API.
+Yes: Meta’s WhatsApp Business Platform. Messaging Me is a Meta Tech Provider, and the WhatsApp Business account lives in your Meta Business account (formerly Business Manager) and stays yours. No Meta Business account yet? Meta’s window has you create it along the way.
 
 **FR · C’est l’API officielle de WhatsApp ?**
 
-Avec un compte Meta Business, oui : la WhatsApp Business Platform de Meta. Messaging Me est Tech Provider de Meta, et le compte WhatsApp Business est dans votre Business Manager et reste à vous. Sans compte Meta Business, vous pouvez relier l’application WhatsApp Business de votre téléphone : elle passe par WhatsApp comme un appareil lié, ce n’est pas l’API officielle.
+Oui : la WhatsApp Business Platform de Meta. Messaging Me est Tech Provider de Meta, et le compte WhatsApp Business est dans votre compte Meta Business (l’ancien Business Manager) et reste à vous. Pas encore de compte Meta Business ? La fenêtre de Meta vous le fait créer en chemin.
 
 ## I have no Meta Business account: can I still use it?
 
-Yes, in two ways. Meta’s window has you create your Meta Business account along the way, with your Facebook profile, and your number goes through the official API. Or link the WhatsApp Business app on your phone with a QR code, with no account at all (no Facebook profile, no card at Meta): the AI agent answers the customers who write, without Meta billing those replies, Claude reads and replies there, and you can still reply from the phone. It goes through WhatsApp as a linked device, it is not the official API. Nothing goes out first there (no templates, campaigns or Shopify messages), and WhatsApp can cut a number. Later, to write first, this number keeps the app and goes through Meta, keeping its conversations: Meta’s window then creates the Meta Business account. The Pro plan needs the API.
+Yes. Meta’s window has you create your Meta Business account along the way, with your Facebook profile (your business name, an email address, the country and the website), then offers a payment method. Already have the WhatsApp Business app? Keep it: its number also sends from Messaging Me, and you still reply from your phone. Otherwise, download it, put your business’s number in it and connect it right away. Meta sometimes refuses a number that is too new: then use the app for a few days, and come back to connect it.
 
 **FR · Je n’ai pas de compte Meta Business : je peux quand même ?**
 
-Oui, de deux façons. La fenêtre de Meta vous fait créer votre compte Meta Business en chemin, avec votre profil Facebook, et votre numéro passe par l’API officielle. Ou bien reliez l’application WhatsApp Business de votre téléphone par un QR code, sans aucun compte (ni profil Facebook, ni carte chez Meta) : l’agent IA y répond aux clients qui écrivent, sans que Meta facture ces réponses, Claude y lit et y répond, et vous répondez toujours depuis le téléphone. Elle passe par WhatsApp comme un appareil lié, ce n’est pas l’API officielle. Rien n’y part en premier (ni modèles, ni campagnes, ni messages Shopify), et WhatsApp peut couper un numéro. Plus tard, pour écrire en premier, ce numéro garde l’application et passe par Meta, en gardant ses conversations : la fenêtre de Meta crée alors le compte Meta Business. L’offre Pro demande l’API.
+Oui. La fenêtre de Meta vous fait créer votre compte Meta Business en chemin, avec votre profil Facebook (le nom de votre entreprise, une adresse e-mail, le pays et le site), puis vous propose un moyen de paiement. Vous avez déjà l’application WhatsApp Business ? Gardez-la : son numéro envoie aussi depuis Messaging Me, et vous répondez toujours depuis votre téléphone. Sinon, téléchargez-la, mettez-y le numéro de votre entreprise et branchez-le tout de suite. Meta refuse parfois un numéro trop neuf : servez-vous alors de l’application quelques jours, puis revenez le brancher.
 
-## API number or WhatsApp Business app: which one should I choose?
+## Which WhatsApp number should I use?
 
-It depends on what your number must do. An official API number, connected through Meta, writes first. It sends templates, confirmations, reminders, campaigns and Shopify messages; it needs a Meta Business account, free, which Meta’s window has you create along the way with your Facebook profile, and a payment method at Meta, which bills the templates and, beyond a monthly allowance, the replies. Without a Meta Business account, for a separate number, the WhatsApp Business app linked by QR code needs no account, Meta does not bill its replies and it stays on your phone, but it only answers those who write to you. You can also keep your WhatsApp Business app on the same number while going through the API, if you want: it is also the next step of a number linked by QR code that wants to write first, conversations included. Without a free number, a provided number costs €3.50 excl. VAT a month, included in Pro. Claude asks you the questions one at a time during setup.
+Your number goes through the official API, connected through Meta. It writes first (templates, confirmations, reminders, campaigns, Shopify messages), and Meta bills the templates and, beyond a monthly allowance, the replies, on a payment method at Meta. Claude asks you three questions, one at a time. Your plan: Free or Pro. Do you have a Meta Business account? Yes: an available number, used neither in WhatsApp nor in the WhatsApp Business app, or a provided number (€3.50 excl. VAT a month, included in Pro); if it is already in the WhatsApp Business app, you can keep it. No, or you do not know: do you already have the WhatsApp Business app? Yes, you keep it; no, you download it with your business’s number; Meta’s window creates the account along the way.
 
-**FR · Numéro de l’API ou application WhatsApp Business : lequel choisir ?**
+**FR · Quel numéro WhatsApp prendre ?**
 
-Cela dépend de ce que votre numéro doit faire. Un numéro de l’API officielle, relié par Meta, écrit en premier. Il envoie modèles, confirmations, rappels, campagnes et messages Shopify ; il demande un compte Meta Business, gratuit, que la fenêtre de Meta vous fait créer en chemin avec votre profil Facebook, et un moyen de paiement chez Meta, qui facture les modèles et, au-delà d’une franchise mensuelle, les réponses. Sans compte Meta Business, pour un numéro à part, l’application WhatsApp Business reliée par QR code ne demande aucun compte, Meta ne facture pas ses réponses et elle reste sur votre téléphone, mais elle ne fait que répondre à ceux qui vous écrivent. Vous pouvez aussi garder votre application WhatsApp Business sur le même numéro tout en passant par l’API, si vous le voulez : c’est aussi la suite d’un numéro relié par QR code qui veut écrire en premier, ses conversations comprises. Sans numéro libre, un numéro fourni coûte 3,50 € HT par mois, inclus dans le Pro. Claude vous pose les questions une par une pendant la mise en service.
+Votre numéro passe par l’API officielle, relié par Meta. Il écrit en premier (modèles, confirmations, rappels, campagnes, messages Shopify), et Meta facture les modèles et, au-delà d’une franchise mensuelle, les réponses, sur un moyen de paiement chez Meta. Claude vous pose trois questions, une par une. Votre offre : Free ou Pro. Avez-vous un compte Meta Business ? Oui : un numéro libre, qui ne sert ni dans WhatsApp ni dans l’application WhatsApp Business, ou un numéro fourni (3,50 € HT par mois, inclus en formule Pro) ; s’il est déjà dans l’application WhatsApp Business, vous pouvez la garder. Non, ou vous ne savez pas : avez-vous déjà l’application WhatsApp Business ? Oui, vous la gardez ; non, vous la téléchargez avec le numéro de votre entreprise ; la fenêtre de Meta crée le compte en chemin.
 
 ## What do I need at Meta before I start?
 
@@ -79,7 +79,7 @@ Four causes. The AI credit is used up: `get_credit`, then `buy_credit`. The agen
 
 **FR · Mon agent IA ne répond plus.**
 
-Quatre causes. Le crédit IA est épuisé : `get_credit`, puis `buy_credit`. L’agent a été désactivé, ou n’est plus celui qui répond : `get_setup_state` le dit. Quelqu’un a répondu à la main, Claude compris (`reply_in_open_window`) : répondre prend la conversation, et l’agent se tait jusqu’à ce qu’elle lui revienne, d’elle-même après un délai sans nouvelle réponse, ou tout de suite : `control_conversation` la rend depuis Claude, ou « Rendre la main » dans l’Inbox de la console. Et en Free, un nouveau client qui écrit à un espace qui a déjà ses 100 contacts n’entre pas, donc l’agent ne lui répond pas : `get_plan` montre le compte.
+Quatre causes. Le crédit IA est épuisé : `get_credit`, puis `buy_credit`. L’agent a été désactivé, ou n’est plus celui qui répond : `get_setup_state` le dit. Quelqu’un a répondu à la main, Claude compris (`reply_in_open_window`) : répondre prend la conversation, et l’agent se tait jusqu’à ce qu’elle lui revienne, d’elle-même après un délai sans nouvelle réponse, ou tout de suite : `control_conversation` la rend depuis Claude, ou « Rendre la main » dans l’Inbox de la console. Et en formule Free, un nouveau client qui écrit à un espace qui a déjà ses 100 contacts n’entre pas, donc l’agent ne lui répond pas : `get_plan` montre le compte.
 
 ## Can my AI agent act in my application?
 
@@ -111,7 +111,7 @@ No: it is rented for €3.50 excl. VAT a month, included in Pro. A number you br
 
 **FR · Le numéro fourni m’appartient-il ?**
 
-Non : il est loué 3,50 € HT par mois, inclus dans le Pro. Un numéro que vous apportez reste à vous.
+Non : il est loué 3,50 € HT par mois, inclus en formule Pro. Un numéro que vous apportez reste à vous.
 
 ## How many messages can I send?
 
@@ -119,7 +119,7 @@ Three limits. The plan’s: 1,000 templates a month on Free, unlimited on Pro; r
 
 **FR · Combien de messages puis-je envoyer ?**
 
-Trois limites. Celle de l’offre : 1 000 modèles par mois en Free, illimités en Pro ; les réponses dans la fenêtre de 24 heures n’y comptent jamais. Celle de l’API : un quota par jour et par espace, selon l’offre, où les modèles et les réponses se comptent à part (un envoi de modèles ne prend jamais la place des réponses), relevable sur demande ; au-delà, le refus quota_exceeded jusqu’au lendemain. Et celle de Meta, qui fixe ce qu’un numéro peut envoyer et l’augmente avec sa qualité.
+Trois limites. Celle de l’offre : 1 000 modèles par mois en formule Free, illimités en formule Pro ; les réponses dans la fenêtre de 24 heures n’y comptent jamais. Celle de l’API : un quota par jour et par espace, selon l’offre, où les modèles et les réponses se comptent à part (un envoi de modèles ne prend jamais la place des réponses), relevable sur demande ; au-delà, le refus quota_exceeded jusqu’au lendemain. Et celle de Meta, qui fixe ce qu’un numéro peut envoyer et l’augmente avec sa qualité.
 
 ## What happens when my Free workspace reaches 100 contacts?
 
@@ -127,7 +127,7 @@ On Free, all your contacts count, those who write to you first included. Once th
 
 **FR · Que se passe-t-il quand mon espace Free atteint ses 100 contacts ?**
 
-En Free, tous vos contacts comptent, ceux qui vous écrivent les premiers compris. Une fois l’espace plein, créer ou importer un contact est refusé (plan_limit_reached), et un nouveau client qui vous écrit n’entre pas : ni fiche, ni conversation, ni réponse de votre agent IA. Un e-mail vous prévient, un par jour au plus. Si ce client a écrit STOP, son refus est quand même gardé. Vos contacts déjà là écrivent et reçoivent comme avant. Pour faire de la place, demandez à Claude de supprimer les contacts dont vous n’avez plus besoin, en masse : les plus anciens, ceux d’une étiquette, selon leur consentement ou d’après une liste (`prepare_contacts_deletion`, puis `delete_contacts`). Il vous montre d’abord combien et quelques fiches, puis supprime sur votre accord, 1 000 au plus par fois ; la suppression est définitive. Ou passez au Pro, où ceux qui vous écrivent les premiers ne comptent pas et ne sont jamais refusés.
+En formule Free, tous vos contacts comptent, ceux qui vous écrivent les premiers compris. Une fois l’espace plein, créer ou importer un contact est refusé (plan_limit_reached), et un nouveau client qui vous écrit n’entre pas : ni fiche, ni conversation, ni réponse de votre agent IA. Un e-mail vous prévient, un par jour au plus. Si ce client a écrit STOP, son refus est quand même gardé. Vos contacts déjà là écrivent et reçoivent comme avant. Pour faire de la place, demandez à Claude de supprimer les contacts dont vous n’avez plus besoin, en masse : les plus anciens, ceux d’une étiquette, selon leur consentement ou d’après une liste (`prepare_contacts_deletion`, puis `delete_contacts`). Il vous montre d’abord combien et quelques fiches, puis supprime sur votre accord, 1 000 au plus par fois ; la suppression est définitive. Ou passez en formule Pro, où ceux qui vous écrivent les premiers ne comptent pas et ne sont jamais refusés.
 
 ## Can Claude prepare and launch a campaign?
 
@@ -135,7 +135,7 @@ Yes, on Pro, and nothing goes out without your yes. Claude finds the contacts (`
 
 **FR · Claude peut-il préparer et lancer une campagne ?**
 
-Oui, en Pro, et rien ne part sans votre oui. Claude trouve les contacts (`find_contacts`), en fait un segment, qui est une étiquette (`tag_contacts`), puis prépare la campagne (`prepare_campaign`) : un brouillon visible dans la console, avec un récapitulatif (contacts visés, combien partiront, les écartés et pourquoi, 5 noms, le nombre de messages facturables par Meta) et un code valable 30 minutes. Il ne lance (`launch_campaign`) qu'après votre oui, avec ce code ; une date choisie programme l'envoi. Vous pouvez aussi lancer le brouillon depuis la console. Le modèle doit être approuvé, et un modèle marketing ne part qu'aux contacts qui ont consenti.
+Oui, en formule Pro, et rien ne part sans votre oui. Claude trouve les contacts (`find_contacts`), en fait un segment, qui est une étiquette (`tag_contacts`), puis prépare la campagne (`prepare_campaign`) : un brouillon visible dans la console, avec un récapitulatif (contacts visés, combien partiront, les écartés et pourquoi, 5 noms, le nombre de messages facturables par Meta) et un code valable 30 minutes. Il ne lance (`launch_campaign`) qu'après votre oui, avec ce code ; une date choisie programme l'envoi. Vous pouvez aussi lancer le brouillon depuis la console. Le modèle doit être approuvé, et un modèle marketing ne part qu'aux contacts qui ont consenti.
 
 ## How do I add a colleague?
 
@@ -143,7 +143,7 @@ From the console, with an invitation. 1 user on Free, 3 on Pro then €15 excl. 
 
 **FR · Comment ajouter un collègue ?**
 
-Depuis la console, par une invitation. 1 utilisateur en Free, 3 en Pro puis 15 € HT par utilisateur en plus et par mois (proposé à l'invitation), 5 en Business puis 10 € HT par utilisateur en plus et par mois (demandé au Support), selon le devis en Entreprise.
+Depuis la console, par une invitation. 1 utilisateur en formule Free, 3 en formule Pro puis 15 € HT par utilisateur en plus et par mois (proposé à l'invitation), 5 en Business puis 10 € HT par utilisateur en plus et par mois (demandé au Support), selon le devis en Entreprise.
 
 ## How do I cancel, and what happens to the number?
 
@@ -151,7 +151,7 @@ Pro and the provided number are managed in the Stripe portal, from the console P
 
 **FR · Comment résilier, et que devient le numéro ?**
 
-Le Pro et le numéro fourni se gèrent dans le portail de Stripe, depuis la page Offre de la console ou par Claude (`manage_number_subscription`). À la fin d’un Pro, le numéro fourni passe à 3,50 € HT par mois sur la même carte, sauf si vous choisissez de le rendre (`return_number_at_plan_end`).
+La formule Pro et le numéro fourni se gèrent dans le portail de Stripe, depuis la page Offre de la console ou par Claude (`manage_number_subscription`). À la fin de la formule Pro, le numéro fourni passe à 3,50 € HT par mois sur la même carte, sauf si vous choisissez de le rendre (`return_number_at_plan_end`).
 
 ## How do I update the plugin?
 

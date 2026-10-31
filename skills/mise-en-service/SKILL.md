@@ -39,10 +39,13 @@ terminal cuts at the edge of the screen).
 
 ## connecter_numero: the WhatsApp number
 
-The same three questions as the "Get started" page of the website, in the same order: the plan, the Meta Business
-account, the WhatsApp Business app. Skip a question whose answer is already known, from the user's request (the
+The same questions as the "Get started" page of the website, in the same order: the plan, the Meta Business account,
+the WhatsApp Business app, then, without the app, the number. Skip a question whose answer is already known, from the user's request (the
 request copied from the website names the plan and the answers) or from `get_setup_state`. When `numero.fourni` is
-already set, a number we provide was paid for: resume with mode `fourni`, without asking again.
+already set, a number we provide was paid for: resume without asking the questions again, in this order. The number
+is already in their WhatsApp Business app (they come back after Meta refused it as too new, for instance): mode
+`coexistence`. It is meant for the app but its account is not created yet: mode `fourni_application`. Otherwise: mode
+`fourni`. If you cannot tell which, ask that one thing only.
 
 Almost nobody knows what a Meta Business account or the WhatsApp Business app is, nor why it matters here: be
 didactic. Before the first question, explain these four words in plain sentences, briefly, in the user's language:
@@ -77,9 +80,17 @@ Then ask ONE question at a time, in this order. Never pick a way on a guess, and
    - "I don't know": tell them where to check (business.facebook.com; if they advertise on Facebook or Instagram, they
      probably have one), and that a missing account is created along the way. Go to question 3.
 3. **"Do you already have the WhatsApp Business app?"** Only after No or "I don't know".
-   - Yes: they keep it (mode `coexistence`).
-   - No: they download the WhatsApp Business app on a phone and put their business's number in it; then you connect
-     it right away, keeping the app (mode `coexistence`). There is no waiting to do first.
+   - Yes: they keep it (mode `coexistence`), and you offer no number.
+   - No: question 4.
+4. **"Do you have a number for your business?"** The number they will put in the WhatsApp Business app.
+   - Yes: they download the WhatsApp Business app on a phone and put their number in it; then you connect it right
+     away, keeping the app (mode `coexistence`). There is no waiting to do first.
+   - No: we provide one, and it goes IN the WhatsApp Business app (mode `fourni_application`; 3.50 EUR excl. tax a
+     month, included in Pro): the page shows the number, they install the app and create its account with that number
+     (the verification code shows on the page and comes to you), then "Keep my WhatsApp Business app" on the same page.
+     Tell them first: from day one they reply to their customers from the app, and Meta often refuses a brand-new
+     number in its window, so sending from Messaging Me may wait a few days, until they come back (then mode
+     `coexistence`: the number is already in the app).
 
 **The QR code link is no longer offered** (`filiere` `application`, an older way that only answered): never propose
 it, and never pass `filiere` to `start_whatsapp_connection`. A workspace already linked that way (`numero.filiere`
@@ -105,18 +116,22 @@ their own number one that is not used in the WhatsApp app): relay it once, befor
    - **their own number** (`apporte`): check that it is not used in the WhatsApp app. A number connected to the API
      leaves the WhatsApp app; Meta's window refuses it until it is removed from the app;
    - **their WhatsApp Business app, kept** (`coexistence`): in Meta's window they enter the number of their app and
-     confirm in the app, on their phone.
+     confirm in the app, on their phone;
+   - **a number we provide, put in the WhatsApp Business app** (`fourni_application`): paid or obtained on the page,
+     then the app's account created with it, then the same window as `coexistence`. The code is typed in the app, not
+     in Meta's window.
 2. `start_whatsapp_connection` with that mode returns a link valid for one hour and its `consigne`. Write the full
    `url` on its own line, then the numbered steps of `consigne`, one per line, in the user's language: the page shows
-   the same ones. For a number we provide: click the link; pay (or "Get my number" in Pro); click "Open the Meta
-   window"; on the number screen, "Enter a new phone number", the country GB (+44), then the digits that follow +44;
+   the same ones. For `fourni_application`, the steps are those of its `consigne` (the app's account, then "Keep my
+   WhatsApp Business app"), with no Meta window before the account. For a number we provide through Meta's window
+   (`fourni`): click the link; pay (or "Get my number" in Pro); click "Open the Meta window"; on the number screen, "Enter a new phone number", the country GB (+44), then the digits that follow +44;
    "Text message" if Meta offers the choice; the code shows on the page within seconds, and you write it here too;
    no code after 45 seconds: wait until Meta offers to send it again, then try the other method; go to Meta's last
    screen, "Finish"; only then come back here. Never write "I generated the link" without the link.
 3. Call `watch_whatsapp_connection` in a loop, passing the `empreinte` it returned as `etat_connu` (and the same
-   `mode` for `coexistence`), until `connecte: true` (`coexistence: true` for the app kept), or until
-   `a_activer: true` (then see `activer_numero`), and follow the `suite` of each answer. When a `code` shows up, write
-   it in full: the user types it into Meta's window. If the user comes back before the end ("I paid", "what now?"),
+   `mode` for `coexistence` and `fourni_application`), until `connecte: true` (`coexistence: true` for the app
+   kept), or until `a_activer: true` (then see `activer_numero`), and follow the `suite` of each answer. When a `code`
+   shows up, write it in full: the user types it into Meta's window, or into the app for `fourni_application`. If the user comes back before the end ("I paid", "what now?"),
    tell them again where they are (the page, Meta's window, the number) before waiting again. Once connected, call
    `get_setup_state` before announcing anything: the credit offered for the first number arrives a few seconds after
    the connection; if it still reads 0, read it once more a few seconds later.

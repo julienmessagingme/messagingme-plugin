@@ -39,7 +39,7 @@ Speak the user's language. Every send follows the `regles-whatsapp` skill of thi
 ## The code
 
 The files of the code folder next to this file: Next.js App Router, TypeScript, the Messaging Me SDK
-(npm install github:julienmessagingme/messagingme-sdk#v0.3.1). They compile against that version. Read them, then adapt
+(npm install github:messagingme/messagingme-sdk#v0.3.1). They compile against that version. Read them, then adapt
 them to this project rather than copying them blindly.
 
 - code/lib/messagingme.ts

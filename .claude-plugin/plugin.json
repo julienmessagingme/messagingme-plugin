@@ -1,11 +1,11 @@
 {
   "name": "messagingme",
   "displayName": "Messaging Me",
-  "version": "0.3.19",
+  "version": "0.3.20",
   "description": "WhatsApp for your app, from Claude Code: your WhatsApp number, an AI agent that answers your customers and a chat bubble for your site, with Messaging Me.",
   "author": { "name": "SmartLink", "url": "https://app.messagingme.fr" },
   "homepage": "https://app.messagingme.fr/en/developers/",
-  "repository": "https://github.com/julienmessagingme/messagingme-plugin",
+  "repository": "https://github.com/messagingme/messagingme-plugin",
   "license": "MIT",
   "icon": "./icon.svg",
   "documentationUrl": "https://app.messagingme.fr/en/developers/",

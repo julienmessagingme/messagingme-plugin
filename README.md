@@ -68,10 +68,10 @@ Each line leads to its page: the use case with its film and its code, or the doc
 - [An AI agent that answers day and night from your site or your docs, and hands over to your team when needed.](https://app.messagingme.fr/en/use-cases/ai-support-human-handover/) (`create_agent`, `import_site`, `import_document_text`, `activate_agent`)
 - [The WhatsApp bubble on your site, Lovable included: the visitor writes, the agent answers.](https://app.messagingme.fr/en/use-cases/whatsapp-bubble-lovable-site/) (`create_widget`)
 - [Appointment booking in the conversation: the agent notes the reason, your app offers the slots.](https://app.messagingme.fr/en/use-cases/appointment-booking/) (`set_agent_action`)
-- [Your opening hours, and what the agent promises when it hands over to your team.](https://console.messagingme.app/developers/mcp?lang=en) (`set_business_hours`, `set_transfer_mode`)
-- [The agent tried on a mock conversation before your customers, and its limits per conversation: answers, actions, credit.](https://console.messagingme.app/developers/mcp?lang=en) (`test_agent`, `set_agent_limits`)
+- [Your opening hours, and what the agent promises when it hands over to your team.](https://console.messagingme.app/developers/mcp?lang=en#set_business_hours) (`set_business_hours`, `set_transfer_mode`)
+- [The agent tried on a mock conversation before your customers, and its limits per conversation: answers, actions, credit.](https://console.messagingme.app/developers/mcp?lang=en#test_agent) (`test_agent`, `set_agent_limits`)
 - [Your conversations read and answered from Claude, within the 24-hour window or with a template, then handed back to the automatic responder.](https://app.messagingme.fr/en/developers/reply-to-a-conversation/) (`get_conversation`, `reply_in_open_window`, `control_conversation`)
-- [Your team in the console Inbox: Claude assigns and tags conversations for it.](https://console.messagingme.app/developers/mcp?lang=en) (`assign_conversation`, `tag_conversation`; Pro plan)
+- [Your team in the console Inbox: Claude assigns and tags conversations for it.](https://console.messagingme.app/developers/mcp?lang=en#assign_conversation) (`assign_conversation`, `tag_conversation`; Pro plan)
 
 ### Message them at the right time
 
@@ -94,11 +94,11 @@ Each line leads to its page: the use case with its film and its code, or the doc
 
 ### Run it from Claude
 
-- [Your templates sent, delivered, read or failed: just ask Claude.](https://console.messagingme.app/developers/mcp?lang=en) (`get_message_stats`)
+- [Your templates sent, delivered, read or failed: just ask Claude.](https://console.messagingme.app/developers/mcp?lang=en#get_message_stats) (`get_message_stats`)
 - [The estimated cost and clicks of your campaigns, and Meta’s errors.](https://app.messagingme.fr/en/features/cost-control/) (`get_campaign_stats`; Pro plan)
-- [Your AI agent’s cost, its messages and the requests opened for your team.](https://console.messagingme.app/developers/mcp?lang=en) (`get_ai_stats`; Pro plan)
+- [Your AI agent’s cost, its messages and the requests opened for your team.](https://console.messagingme.app/developers/mcp?lang=en#get_ai_stats) (`get_ai_stats`; Pro plan)
 - [What your conversations say: sentiment, intents, topics, urgency.](https://app.messagingme.fr/en/features/conversations-into-actions/) (`get_conversation_insights`; Enterprise plan)
-- [Your surplus contacts deleted in bulk with your agreement, and a contact blocked in one sentence.](https://console.messagingme.app/developers/mcp?lang=en) (`prepare_contacts_deletion`, `delete_contacts`, `block_contact`)
+- [Your surplus contacts deleted in bulk with your agreement, and a contact blocked in one sentence.](https://console.messagingme.app/developers/mcp?lang=en#prepare_contacts_deletion) (`prepare_contacts_deletion`, `delete_contacts`, `block_contact`)
 - [The Pro plan, AI credit and the provided number’s subscription, handled from Claude.](https://app.messagingme.fr/en/pricing/) (`get_plan`, `buy_credit`, `subscribe_pro`, `manage_number_subscription`)
 <!-- construire:fin -->
 
@@ -134,7 +134,7 @@ The tools of the MCP server, by family:
 - **Chat bubble**: `list_widgets`, `create_widget`, `update_widget`
 - **Shopify store**: `connect_shopify`, `set_shopify_message`, `get_shopify_state`, `preview_shopify_customers`, `import_shopify_customers`, `disconnect_shopify`
 - **Webhooks**: `create_webhook_endpoint`, `list_webhook_endpoints`, `update_webhook_endpoint`, `delete_webhook_endpoint`, `send_test_event`, `get_webhook_deliveries`, `replay_webhook_delivery`
-- **Statistics**: `get_message_stats`, `get_campaign_stats`, `get_ai_stats`
+- **Statistics**: `get_message_stats`, `get_campaign_stats`, `get_ai_stats`, `get_revenue_stats`
 <!-- outils:fin -->
 
 ## Update

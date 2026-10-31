@@ -1,7 +1,7 @@
 ---
 name: shopify
-description: Connects the user's Shopify store to Messaging Me so that customers receive WhatsApp messages when an order is paid or shipped, and a reminder when they abandon a checkout, and imports the store's customers who subscribed to marketing - creates the store app with the Shopify CLI in the merchant's own organization, installs it with one click, keeps its secret and sets the messages. Use when the user wants to connect Shopify, send order confirmations, shipping updates or abandoned checkout reminders on WhatsApp, import their Shopify customers, or check or cut the Shopify connection.
-allowed-tools: mcp__plugin_messagingme_messagingme__get_shopify_state, mcp__plugin_messagingme_messagingme__preview_shopify_customers, mcp__plugin_messagingme_messagingme__list_templates, mcp__plugin_messagingme_messagingme__get_template_status, mcp__plugin_messagingme_messagingme__get_setup_state
+description: Connects the user's Shopify store to Messaging Me so that customers receive WhatsApp messages when an order is paid or shipped, and a reminder when they abandon a checkout, and imports the store's customers who subscribed to marketing - creates the store app with the Shopify CLI in the merchant's own organization, installs it with one click, keeps its secret and sets the messages. Use when the user wants to connect Shopify, send order confirmations, shipping updates or abandoned checkout reminders on WhatsApp, import their Shopify customers, know how much revenue their WhatsApp messages brought in, or check or cut the Shopify connection.
+allowed-tools: mcp__plugin_messagingme_messagingme__get_shopify_state, mcp__plugin_messagingme_messagingme__get_revenue_stats, mcp__plugin_messagingme_messagingme__preview_shopify_customers, mcp__plugin_messagingme_messagingme__list_templates, mcp__plugin_messagingme_messagingme__get_template_status, mcp__plugin_messagingme_messagingme__get_setup_state
 ---
 
 # Connect a Shopify store
@@ -80,6 +80,9 @@ redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
 3. Call `connect_shopify` with `store`, `client_id` (SHOPIFY_API_KEY) and `client_secret` (SHOPIFY_API_SECRET). A refusal
    says what to do: the app is not installed yet (give the link again), it is not in the store's organization, or the
    keys are wrong.
+4. Ask the user to make the phone number required at checkout, in Shopify: Settings > Checkout, the shipping address
+   phone number set to Required. Without a phone, an order gets no WhatsApp confirmation and is never attributed to a
+   message.
 
 ## Set the order messages
 
@@ -126,9 +129,22 @@ record counts toward the plan's contact limit, and managing that limit is the us
 3. Call `import_shopify_customers` with `max_contacts`, the number they chose. A number above the free places is refused
    and nothing is written. The records are tagged Shopify; calling again imports the next ones without duplicates.
 
+## What WhatsApp brought in
+
+- `get_revenue_stats` (`du` and `au`, the last 30 days by default): the orders paid within 5 days after a WhatsApp
+  message, credited to the last one, per currency: the gross amount, its proven part, each source (each campaign by
+  its name, the checkout reminder, scenarios, AI agent, Meta Business Agent), and the checkouts reminded and recovered.
+- Say the gross amount and its proven part. Never present an unproven sale as caused by a message: it is a match in
+  time. Never add two currencies. Refunds are not deducted.
+- Test orders (Shopify's test gateway) come apart, in their own block, and never count: mention them separately, they
+  are how a development store is tried.
+- Only orders paid since the store was connected count: from customers already in the workspace, or, without one,
+  through a campaign link (proven by UTM).
+
 ## Check or cut
 
 - `get_shopify_state`: the store, its messages, the last event received, the last 30 days of outcomes (sent, opted
-  out, contact limit reached...) and, for checkout reminders, the last 7 days (a checkout is kept no longer). On the Free plan there is no console: this tool is the way to see the connection.
+  out, contact limit reached...) and, for checkout reminders, the last 7 days (a checkout is kept no longer), with those
+  recovered and their amount. On the Free plan there is no console: this tool is the way to see the connection.
 - `disconnect_shopify` stops every message. The app stays installed on the store: only the user can uninstall it, from
   the store apps page the tool returns.
